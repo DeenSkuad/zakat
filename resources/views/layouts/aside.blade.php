@@ -6,7 +6,7 @@
         <div class="aside-user d-flex align-items-sm-center justify-content-center py-5">
             <!--begin::Symbol-->
             <div class="symbol symbol-50px">
-                <img src="assets/media/avatars/300-1.jpg" alt="" />
+                <img src="{{ asset('default.png') }}" alt="" />
             </div>
             <!--end::Symbol-->
             <!--begin::Wrapper-->
@@ -48,9 +48,9 @@
                                     <!--end::Avatar-->
                                     <!--begin::Username-->
                                     <div class="d-flex flex-column">
-                                        <div class="fw-bold d-flex align-items-center fs-5">Max Smith
-                                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-                                        <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                        <div class="fw-bold d-flex align-items-center fs-5">{{ auth()->user()->name }}
+                                        <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">{{ auth()->user()->getRoleNames()[0] }}</span></div>
+                                        <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
                                     <!--end::Username-->
                                 </div>
@@ -866,7 +866,7 @@
                 <!--begin:Menu item-->
                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <div class="menu-item">
-                        <a class="menu-link" href="{{ route('home') }}">
+                        <a class="menu-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-abstract-13 fs-2">
                                     <span class="path1"></span>
@@ -884,7 +884,20 @@
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <div class="menu-item">
-                        <a class="menu-link" href="{{ route('users.index') }}">
+                        <a class="menu-link {{ Route::is('services.*') ? 'active' : '' }}" href="{{ route('services.index') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-13 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Jenis Bantuan</span>
+                        </a>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                    <div class="menu-item">
+                        <a class="menu-link {{ Route::is('users.*') ? 'active' : '' }}" href="{{ route('users.index') }}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-abstract-13 fs-2">
                                     <span class="path1"></span>

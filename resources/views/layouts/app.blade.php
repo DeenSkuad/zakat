@@ -59,8 +59,8 @@
 						<!--begin::Brand-->
 						<div class="header-brand">
 							<!--begin::Logo-->
-							<a href="index.html">
-								<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px h-lg-25px" />
+							<a href="{{ route('home') }}">
+								<img alt="Logo" src="{{ asset('logo.png') }}" height="50px" /> MAIWP
 							</a>
 							<!--end::Logo-->
 							<!--begin::Aside minimize-->

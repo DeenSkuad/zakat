@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AuthApiController extends Controller
+class AuthAPIController extends Controller
 {
     public function auth(Request $request)
     {
@@ -56,6 +57,27 @@ class AuthApiController extends Controller
                 'success' => false,
                 'message' => $th->getMessage()
             ], 500);
+        }
+    }
+
+    public function register(Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            $input = $request->all();
+            $input['password'] = bcrypt($request->password);
+
+            $user = User::create($input);
+
+            $user->assignRole($request->role);
+
+            DB::commit();
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
         }
     }
 }

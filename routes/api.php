@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthAPIController;
+use App\Http\Controllers\Api\ServiceAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/login', [AuthAPIController::class, 'auth'])->name('auth.login');
     Route::post('/register', [AuthAPIController::class, 'register'])->name('auth.register');
 });
+
+Route::apiResources([
+    'services' => ServiceAPIController::class,
+]);

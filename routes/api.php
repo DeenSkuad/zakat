@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\StateAPIController;
 use App\Http\Controllers\Api\CityAPIController;
 use App\Http\Controllers\Api\DistrictAPIController;
 use App\Http\Controllers\Api\KariahAPIController;
+use App\Http\Controllers\Api\PaymentAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,5 +58,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         'districts' => DistrictAPIController::class,
         'asnaf-profiles' => AsnafProfileAPIController::class,
         'kariahs' => KariahAPIController::class,
+        'payments' => PaymentAPIController::class,
     ]);
 });

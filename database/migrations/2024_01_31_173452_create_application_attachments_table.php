@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('application_attachments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50);
+            $table->unsignedInteger('application_id');
+            $table->string('file');
             $table->auditable();
+
+            $table->foreign('application_id')->references('id')->on('applications');
         });
     }
 
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('application_attachments');
     }
 };

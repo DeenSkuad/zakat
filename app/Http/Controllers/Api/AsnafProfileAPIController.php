@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\AsnafProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class AsnafProfileAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $asnafProfile = AsnafProfile::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $asnafProfile
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            AsnafProfile::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +49,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $asnafProfile = AsnafProfile::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $asnafProfile
         ]);
     }
 
@@ -67,8 +67,8 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $asnafProfile = AsnafProfile::find($id);
+            $asnafProfile->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +87,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $asnafProfile = AsnafProfile::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $asnafProfile->deleted_by = auth()->user()->id;
+            $asnafProfile->save();
 
-            $service->delete();
+            $asnafProfile->delete();
 
             DB::commit();
             return response()->json([

@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class DistrictAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $districts = District::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $districts
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            District::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +49,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $district = District::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $district
         ]);
     }
 
@@ -67,8 +67,8 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $district = District::find($id);
+            $district->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +87,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $district = District::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $district->deleted_by = auth()->user()->id;
+            $district->save();
 
-            $service->delete();
+            $district->delete();
 
             DB::commit();
             return response()->json([
@@ -102,5 +102,35 @@ class ServiceAPIController extends Controller
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function byStateId($stateId)
+    {
+        $district = District::where('state_id', $stateId)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $district
+        ]);
+    }
+
+    public function byCityId($citytId)
+    {
+        $district = District::where('city_id', $citytId)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $district
+        ]);
+    }
+
+    public function byPostcode($postcode)
+    {
+        $district = District::where('city_id', $postcode)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $district
+        ]);
     }
 }

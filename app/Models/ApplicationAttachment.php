@@ -6,14 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class ApplicationAttachment extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'services';
+    public $table = 'application_attachments';
 
     public $fillable = [
-        'name',
+        'application_id',
+        'file',
         'status',
         'remarks',
         'deleted_at',

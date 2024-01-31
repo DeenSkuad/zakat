@@ -6,21 +6,27 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class AsnafProfile extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'services';
+    public $table = 'asnaf_profiles';
 
     public $fillable = [
-        'name',
+        'address_1',
+        'address_2',
+        'address_3',
+        'district_id',
+        'state_id',
+        'postcode',
+        'kariah_id',
+        'remark',
         'status',
-        'remarks',
         'deleted_at',
         'deleted_by',
         'created_at',
-        'updated_at',
         'created_by',
+        'updated_at',
         'updated_by',
     ];
 }

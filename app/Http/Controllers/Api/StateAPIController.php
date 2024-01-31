@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class StateAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $states = State::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $states
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            State::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +49,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $state = State::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $state
         ]);
     }
 
@@ -67,8 +67,8 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $state = State::find($id);
+            $state->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +87,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $state = State::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $state->deleted_by = auth()->user()->id;
+            $state->save();
 
-            $service->delete();
+            $state->delete();
 
             DB::commit();
             return response()->json([

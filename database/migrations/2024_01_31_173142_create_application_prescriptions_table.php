@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('application_prescriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 50);
+            $table->unsignedInteger('application_id');
+            $table->unsignedInteger('prescription_id');
             $table->auditable();
+
+            $table->foreign('application_id')->references('id')->on('applications');
+            $table->foreign('prescription_id')->references('id')->on('prescriptions');
         });
     }
 
@@ -23,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('application_prescriptions');
     }
 };

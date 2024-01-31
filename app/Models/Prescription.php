@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class Prescription extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'services';
+    public $table = 'prescriptions';
 
     public $fillable = [
         'name',

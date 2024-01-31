@@ -6,14 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class Application extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'services';
+    public $table = 'applications';
 
     public $fillable = [
         'name',
+        'ic_no',
+        'disease_id',
+        'disease_background',
+        'treatment_period',
+        'medical_cost',
+        'frequency',
+        'self_support',
+        'comments',
         'status',
         'remarks',
         'deleted_at',

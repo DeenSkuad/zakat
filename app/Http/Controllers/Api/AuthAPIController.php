@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AsnafProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +71,10 @@ class AuthAPIController extends Controller
             $user = User::create($input);
 
             $user->assignRole($request->role);
+
+            if($request->role === 'Asnaf') {
+                $asnafProfile = AsnafProfile::create($input);
+            }
 
             DB::commit();
             return response()->json([

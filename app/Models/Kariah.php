@@ -6,21 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class Kariah extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'services';
+    public $table = 'kariahs';
 
     public $fillable = [
+        'district_id',
         'name',
+        'remark',
         'status',
-        'remarks',
         'deleted_at',
         'deleted_by',
         'created_at',
-        'updated_at',
         'created_by',
+        'updated_at',
         'updated_by',
     ];
 }

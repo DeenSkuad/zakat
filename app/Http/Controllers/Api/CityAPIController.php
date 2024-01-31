@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class CityAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $cities = City::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $cities
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            City::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +49,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $city = City::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $city
         ]);
     }
 
@@ -67,8 +67,8 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $city = City::find($id);
+            $city->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +87,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $city = City::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $city->deleted_by = auth()->user()->id;
+            $city->save();
 
-            $service->delete();
+            $city->delete();
 
             DB::commit();
             return response()->json([
@@ -102,5 +102,15 @@ class ServiceAPIController extends Controller
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function byStateId($id)
+    {
+        $cities = City::where('state_id', $id)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $cities
+        ]);
     }
 }

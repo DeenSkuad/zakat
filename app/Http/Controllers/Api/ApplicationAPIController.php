@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class ApplicationAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $applications = Application::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $applications
         ]);
     }
 
@@ -30,9 +30,8 @@ class ServiceAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            $application = Application::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +48,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $application = Application::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $application
         ]);
     }
 
@@ -65,10 +64,9 @@ class ServiceAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $application = Application::find($id);
+            $application->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +85,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $application = Application::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $application->deleted_by = auth()->user()->id;
+            $application->save();
 
-            $service->delete();
+            $application->delete();
 
             DB::commit();
             return response()->json([
@@ -102,5 +100,15 @@ class ServiceAPIController extends Controller
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function byUserId($id = null)
+    {
+        $applications = Application::where('created_by', $id ?? auth()->user()->id)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $applications
+        ]);
     }
 }

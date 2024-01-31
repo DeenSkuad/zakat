@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\Api\ApplicationAPIController;
+use App\Http\Controllers\Api\AsnafProfileAPIController;
 use App\Http\Controllers\Api\AuthAPIController;
+use App\Http\Controllers\Api\DiseaseAPIController;
+use App\Http\Controllers\Api\PrescriptionAPIController;
 use App\Http\Controllers\Api\ServiceAPIController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\StateAPIController;
+use App\Http\Controllers\Api\CityAPIController;
+use App\Http\Controllers\Api\DistrictAPIController;
+use App\Http\Controllers\Api\KariahAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +28,34 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/register', [AuthAPIController::class, 'register'])->name('auth.register');
 });
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::group(['prefix' => 'applications', 'as' => 'applications.'], function () {
+        Route::get('/by-user-id/{id?}', [ApplicationAPIController::class, 'byUserId'])->name('by-user-id');
+    });
+
+    Route::group(['prefix' => 'cities', 'as' => 'applications.'], function () {
+        Route::get('/by-state-id/{id}', [CityAPIController::class, 'byStateId'])->name('by-state-id');
+    });
+
+    Route::group(['prefix' => 'districts', 'as' => 'applications.'], function () {
+        Route::get('/by-state-id/{id}', [DistrictAPIController::class, 'byStateId'])->name('by-state-id');
+        Route::get('/by-city-id/{id}', [DistrictAPIController::class, 'byCityId'])->name('by-city-id');
+        Route::get('/by-postcode/{postcode}', [DistrictAPIController::class, 'byPostcode'])->name('by-postcode-id');
+    });
+
+    Route::group(['prefix' => 'kariahs', 'as' => 'applications.'], function () {
+        Route::get('/by-district-id/{id}', [KariahAPIController::class, 'byDistrictId'])->name('by-district-id');
+    });
+
     Route::apiResources([
         'services' => ServiceAPIController::class,
+        'applications' => ApplicationAPIController::class,
+        'prescriptions' => PrescriptionAPIController::class,
+        'diseases' => DiseaseAPIController::class,
+        'states' => StateAPIController::class,
+        'cities' => CityAPIController::class,
+        'districts' => DistrictAPIController::class,
+        'asnaf-profiles' => AsnafProfileAPIController::class,
+        'kariahs' => KariahAPIController::class,
     ]);
 });

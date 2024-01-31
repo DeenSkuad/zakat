@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Disease;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class DiseaseAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $diseases = Disease::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $diseases
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            Disease::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +49,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $disease = Disease::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $disease
         ]);
     }
 
@@ -67,8 +67,8 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $disease = Disease::find($id);
+            $disease->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +87,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $disease = Disease::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $disease->deleted_by = auth()->user()->id;
+            $disease->save();
 
-            $service->delete();
+            $disease->delete();
 
             DB::commit();
             return response()->json([

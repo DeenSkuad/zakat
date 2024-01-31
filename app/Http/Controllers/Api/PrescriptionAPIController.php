@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ServiceAPIController extends Controller
+class PrescriptionAPIController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
+        $prescriptions = Prescription::all();
 
         return response()->json([
             'success' => true,
-            'data' => $services
+            'data' => $prescriptions
         ]);
     }
 
@@ -32,7 +32,7 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Service::create($input);
+            Prescription::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +49,11 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        $service = Service::find($id);
+        $prescription = Prescription::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $service
+            'data' => $prescription
         ]);
     }
 
@@ -67,8 +67,8 @@ class ServiceAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $service = Service::find($id);
-            $service->update($input);
+            $prescription = Prescription::find($id);
+            $prescription->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +87,12 @@ class ServiceAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $service = Service::find($id);
+            $prescription = Prescription::find($id);
 
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
+            $prescription->deleted_by = auth()->user()->id;
+            $prescription->save();
 
-            $service->delete();
+            $prescription->delete();
 
             DB::commit();
             return response()->json([

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedInteger('district_id');
             $table->unsignedInteger('state_id');
             $table->string('postcode', 10);
+            $table->string('phone_no', 30);
             $table->unsignedInteger('kariah_id');
             $table->auditable();
 

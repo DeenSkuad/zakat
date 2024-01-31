@@ -19,6 +19,7 @@ class AsnafProfile extends Model
         'district_id',
         'state_id',
         'postcode',
+        'phone_no',
         'kariah_id',
         'remark',
         'status',

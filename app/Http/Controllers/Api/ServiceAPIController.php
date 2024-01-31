@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ServiceAPIController extends Controller
 {
@@ -12,7 +14,12 @@ class ServiceAPIController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+
+        return response()->json([
+            'success' => true,
+            'data' => $services
+        ]);
     }
 
     /**
@@ -20,7 +27,20 @@ class ServiceAPIController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $input = $request->all();
+
+            Service::create($input);
+
+            DB::commit();
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     /**
@@ -28,7 +48,12 @@ class ServiceAPIController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $service = Service::find($id);
+
+        return response()->json([
+            'success' => true,
+            'data' => $service
+        ]);
     }
 
     /**
@@ -36,7 +61,21 @@ class ServiceAPIController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $input = $request->all();
+
+            $service = Service::find($id);
+            $service->update($input);
+
+            DB::commit();
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     /**
@@ -44,6 +83,22 @@ class ServiceAPIController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $service = Service::find($id);
+
+            $service->deleted_by = auth()->user()->id;
+            $service->save();
+
+            $service->delete();
+
+            DB::commit();
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 }

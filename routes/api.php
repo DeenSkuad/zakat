@@ -21,6 +21,8 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('/register', [AuthAPIController::class, 'register'])->name('auth.register');
 });
 
-Route::apiResources([
-    'services' => ServiceAPIController::class,
-]);
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::apiResources([
+        'services' => ServiceAPIController::class,
+    ]);
+});

@@ -4,8 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Application;
+use App\Models\ApplicationAttachment;
+use App\Models\ApplicationDisease;
+use App\Models\ApplicationPrescription;
+use App\Models\Disease;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class ApplicationAPIController extends Controller
 {
@@ -14,7 +21,11 @@ class ApplicationAPIController extends Controller
      */
     public function index()
     {
-        $applications = Application::all();
+        $applications = Application::with([
+            'prescriptions',
+            'diseases',
+            'attachments'
+        ])->get();
 
         return response()->json([
             'success' => true,
@@ -29,9 +40,54 @@ class ApplicationAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $input = $request->all();
+            $input = $request->except(['attachments', 'diseases', 'prescriptions']);
+            $input['created_by'] = auth()->user()->id;
 
             $application = Application::create($input);
+
+            if ($request->hasFile('attachments')) {
+                $attachments = $request->file('attachments');
+
+                $uuid = Uuid::uuid4();
+                foreach ($attachments as $attachment) {
+                    $filePath = $attachment->store($uuid, 'application-attachments');
+
+                    ApplicationAttachment::create([
+                        'application_id' => $application->id,
+                        'file' => $filePath,
+                    ]);
+                }
+            }
+
+            $diseases = $request->diseases;
+
+            foreach ($diseases as $disease) {
+                $data = Disease::where('name', $disease)->first();
+
+                if (empty($data)) {
+                    $data = Disease::create(['name' => $disease]);
+                }
+
+                ApplicationDisease::create([
+                    'application_id' => $application->id,
+                    'disease_id' => $data->id
+                ]);
+            }
+
+            $prescriptions = $request->prescriptions;
+
+            foreach ($prescriptions as $prescription) {
+                $data = Prescription::where('name', $prescription)->first();
+
+                if (empty($data)) {
+                    $data = Prescription::create(['name' => $prescription]);
+                }
+
+                ApplicationPrescription::create([
+                    'application_id' => $application->id,
+                    'prescription_id' => $data->id
+                ]);
+            }
 
             DB::commit();
             return response()->json([
@@ -48,7 +104,11 @@ class ApplicationAPIController extends Controller
      */
     public function show(string $id)
     {
-        $application = Application::find($id);
+        $application = Application::with([
+            'prescriptions',
+            'diseases',
+            'attachments'
+        ])->find($id);
 
         return response()->json([
             'success' => true,

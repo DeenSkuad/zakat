@@ -31,4 +31,19 @@ class Application extends Model
         'created_by',
         'updated_by',
     ];
+
+    public function attachments()
+    {
+        return $this->hasMany(ApplicationAttachment::class, 'application_id', 'id');
+    }
+
+    public function diseases()
+    {
+        return $this->hasManyThrough(Disease::class, ApplicationDisease::class, 'application_id', 'id', 'id', 'disease_id');
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasManyThrough(Prescription::class, ApplicationPrescription::class, 'application_id', 'id', 'id', 'prescription_id');
+    }
 }

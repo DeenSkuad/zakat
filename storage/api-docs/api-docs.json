@@ -1,0 +1,71 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Zakat Fintech API Documentation",
+        "description": "A description of Zakat Fintech API",
+        "contact": {
+            "email": "firdausishaddin@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://zakat-fintech.test",
+            "description": "Local Environment"
+        }
+    ],
+    "paths": {
+        "/api/services": {
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Get list of Services",
+                "description": "Get Services",
+                "operationId": "7eb9058f0d2f3bc0a9a22df5d47b1f66",
+                "responses": {
+                    "200": {
+                        "description": "Service Module"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "passport": [
+                            "*"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Services",
+            "description": "API Endpoints of Services"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "passport": {
+                "type": "oauth2",
+                "description": "Laravel passport oauth2 security.",
+                "in": "header",
+                "scheme": "https",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "https://zakat-fintech.test/oauth/authorize",
+                        "tokenUrl": "https://zakat-fintech.test/oauth/token",
+                        "refreshUrl": "https://zakat-fintech.test/token/refresh",
+                        "scopes": []
+                    }
+                }
+            }
+        }
+    }
+}

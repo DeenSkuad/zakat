@@ -10,7 +10,16 @@ use Illuminate\Support\Facades\DB;
 class ServiceAPIController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/services",
+     *     tags={"Services"},
+     *     summary="Get list of Services",
+     *     description="Get Services",
+     *     @OA\Response(response=200, description="Service Module"),
+     *     @OA\Response(response=400, description="Bad request"),
+     *     @OA\Response(response=404, description="Resource Not Found"),
+     *     security={{"passport": {"*"}}},
+     * )
      */
     public function index()
     {

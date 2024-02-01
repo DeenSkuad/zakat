@@ -10,14 +10,32 @@ use Illuminate\Support\Facades\DB;
 class ServiceAPIController extends Controller
 {
     /**
+     * @OA\Schema(
+     *     schema="Service",
+     *     type="object",
+     *     title="Service",
+     *     description="References Service Model",
+     *     @OA\Property(
+     *         property="name",
+     *         type="string",
+     *         description="Name of the service",
+     *         example="Bantuan Makanan"
+     *     ),
+     * )
+     *
      * @OA\Get(
      *     path="/api/services",
      *     tags={"Services"},
      *     summary="Get list of Services",
-     *     description="Get Services",
-     *     @OA\Response(response=200, description="Service Module"),
-     *     @OA\Response(response=400, description="Bad request"),
-     *     @OA\Response(response=404, description="Resource Not Found"),
+     *     description="Retrieves a list of all available services.",
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of services retrieved successfully",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/Service")
+     *         )
+     *     ),
      *     security={{"passport": {"*"}}},
      * )
      */
@@ -32,7 +50,26 @@ class ServiceAPIController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/services",
+     *     tags={"Services"},
+     *     summary="Store a Service into database",
+     *     description="Create a new service entry in the database.",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Service successfully created",
+     *         @OA\JsonContent(ref="#/components/schemas/Service")
+     *     ),
+     *     security={{"passport": {"*"}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Data required to create a new service",
+     *         @OA\JsonContent(
+     *             required={"name"},
+     *             @OA\Property(property="name", type="string", example="Bantuan Makanan")
+     *         )
+     *     )
+     * )
      */
     public function store(Request $request)
     {
@@ -54,7 +91,25 @@ class ServiceAPIController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="/api/services/{id}",
+     *     tags={"Services"},
+     *     summary="Get a Service by ID",
+     *     description="Retrieves detailed information about a specific service using its ID.",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Unique identifier of the service",
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Service details retrieved successfully",
+     *         @OA\JsonContent(ref="#/components/schemas/Service")
+     *     ),
+     *     security={{"passport": {"*"}}},
+     * )
      */
     public function show(string $id)
     {
@@ -67,7 +122,30 @@ class ServiceAPIController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="/api/services/{id}",
+     *     tags={"Services"},
+     *     summary="Update a specific service",
+     *     description="Updates the details of a specific service by ID.",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Service ID",
+     *         @OA\Schema(type="integer", format="int64")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Object containing updated service information",
+     *         @OA\JsonContent(ref="#/components/schemas/Service")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Service successfully updated",
+     *         @OA\JsonContent(ref="#/components/schemas/Service")
+     *     ),
+     *     security={{"passport": {"*"}}}
+     * )
      */
     public function update(Request $request, string $id)
     {
@@ -90,7 +168,27 @@ class ServiceAPIController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="/api/services/{id}",
+     *     tags={"Services"},
+     *     summary="Delete a Service by ID",
+     *     description="Deletes a specific service identified by its ID.",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Unique identifier of the service to be deleted",
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Service successfully deleted",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Service successfully deleted")
+     *         )
+     *     ),
+     *     security={{"passport": {"*"}}},
+     * )
      */
     public function destroy(string $id)
     {

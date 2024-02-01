@@ -24,40 +24,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::post('/login', [AuthAPIController::class, 'auth'])->name('auth.login');
-    Route::post('/register', [AuthAPIController::class, 'register'])->name('auth.register');
-});
-
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::group(['prefix' => 'applications', 'as' => 'applications.'], function () {
-        Route::get('/by-user-id/{id?}', [ApplicationAPIController::class, 'byUserId'])->name('by-user-id');
+Route::group(['as' => 'api.'], function () {
+    Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+        Route::post('/login', [AuthAPIController::class, 'auth'])->name('login');
+        Route::post('/register', [AuthAPIController::class, 'register'])->name('register');
     });
 
-    Route::group(['prefix' => 'cities', 'as' => 'applications.'], function () {
-        Route::get('/by-state-id/{id}', [CityAPIController::class, 'byStateId'])->name('by-state-id');
-    });
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::group(['prefix' => 'applications', 'as' => 'applications.'], function () {
+            Route::get('/by-user-id/{id?}', [ApplicationAPIController::class, 'byUserId'])->name('by-user-id');
+        });
 
-    Route::group(['prefix' => 'districts', 'as' => 'applications.'], function () {
-        Route::get('/by-state-id/{id}', [DistrictAPIController::class, 'byStateId'])->name('by-state-id');
-        Route::get('/by-city-id/{id}', [DistrictAPIController::class, 'byCityId'])->name('by-city-id');
-        Route::get('/by-postcode/{postcode}', [DistrictAPIController::class, 'byPostcode'])->name('by-postcode-id');
-    });
+        Route::group(['prefix' => 'cities', 'as' => 'cities.'], function () {
+            Route::get('/by-state-id/{id}', [CityAPIController::class, 'byStateId'])->name('by-state-id');
+        });
 
-    Route::group(['prefix' => 'kariahs', 'as' => 'applications.'], function () {
-        Route::get('/by-district-id/{id}', [KariahAPIController::class, 'byDistrictId'])->name('by-district-id');
-    });
+        Route::group(['prefix' => 'districts', 'as' => 'districts.'], function () {
+            Route::get('/by-state-id/{id}', [DistrictAPIController::class, 'byStateId'])->name('by-state-id');
+            Route::get('/by-city-id/{id}', [DistrictAPIController::class, 'byCityId'])->name('by-city-id');
+            Route::get('/by-postcode/{postcode}', [DistrictAPIController::class, 'byPostcode'])->name('by-postcode-id');
+        });
 
-    Route::apiResources([
-        'services' => ServiceAPIController::class,
-        'applications' => ApplicationAPIController::class,
-        'prescriptions' => PrescriptionAPIController::class,
-        'diseases' => DiseaseAPIController::class,
-        'states' => StateAPIController::class,
-        'cities' => CityAPIController::class,
-        'districts' => DistrictAPIController::class,
-        'asnaf-profiles' => AsnafProfileAPIController::class,
-        'kariahs' => KariahAPIController::class,
-        'payments' => PaymentAPIController::class,
-    ]);
+        Route::group(['prefix' => 'kariahs', 'as' => 'kariahs.'], function () {
+            Route::get('/by-district-id/{id}', [KariahAPIController::class, 'byDistrictId'])->name('by-district-id');
+        });
+
+        Route::apiResources([
+            'services' => ServiceAPIController::class,
+            'applications' => ApplicationAPIController::class,
+            'prescriptions' => PrescriptionAPIController::class,
+            'diseases' => DiseaseAPIController::class,
+            'states' => StateAPIController::class,
+            'cities' => CityAPIController::class,
+            'districts' => DistrictAPIController::class,
+            'asnaf-profiles' => AsnafProfileAPIController::class,
+            'kariahs' => KariahAPIController::class,
+            'payments' => PaymentAPIController::class,
+        ]);
+    });
 });

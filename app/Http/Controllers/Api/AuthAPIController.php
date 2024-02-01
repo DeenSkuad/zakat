@@ -68,13 +68,26 @@ class AuthAPIController extends Controller
             $input = $request->all();
             $input['password'] = bcrypt($request->password);
 
-            $user = User::create($input);
+            $validator = Validator::make($input, [
+                'role' => 'required'
+            ], [
+                'role.required' => 'Sila masukkan peranan'
+            ]);
 
-            $user->assignRole($request->role);
+            if($validator->fails()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $validator->errors()
+                ]);
+            }
+
+            $user = User::create($input);
 
             if($request->role === 'Asnaf') {
                 $asnafProfile = AsnafProfile::create($input);
             }
+
+            $user->assignRole($request->role);
 
             DB::commit();
             return response()->json([

@@ -35,6 +35,12 @@ Route::group(['as' => 'api.'], function () {
             Route::get('/by-user-id/{id?}', [ApplicationAPIController::class, 'byUserId'])->name('by-user-id');
         });
 
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+            Route::get('/', [AuthAPIController::class, 'index'])->name('index');
+            Route::get('/show/{id?}', [AuthAPIController::class, 'show'])->name('show');
+            Route::get('/asnaf-by-auth-or-id/{id?}', [AuthAPIController::class, 'asnafByAuthOrId'])->name('asnaf-by-auth-or-id');
+        });
+
         Route::apiResources([
             'services' => ServiceAPIController::class,
             'applications' => ApplicationAPIController::class,

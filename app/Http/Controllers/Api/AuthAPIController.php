@@ -74,7 +74,7 @@ class AuthAPIController extends Controller
                 'role.required' => 'Sila masukkan peranan'
             ]);
 
-            if($validator->fails()) {
+            if ($validator->fails()) {
                 return response()->json([
                     'success' => false,
                     'message' => $validator->errors()
@@ -83,7 +83,11 @@ class AuthAPIController extends Controller
 
             $user = User::create($input);
 
-            if($request->role === 'Asnaf') {
+            if ($request->role === 'Asnaf') {
+                if (!empty(auth()->user())) {
+                    $input['created_by'] = auth()->user()->id;
+                }
+
                 $asnafProfile = AsnafProfile::create($input);
             }
 
@@ -97,5 +101,37 @@ class AuthAPIController extends Controller
             DB::rollBack();
             throw $th;
         }
+    }
+
+    public function index()
+    {
+        $users = User::get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $users
+        ]);
+    }
+
+    public function asnafByAuthOrId($id = '')
+    {
+        $user = User::where('created_by', $id ?: auth()->user()->id);
+
+        $user->load(['asnaf']);
+
+        return response()->json([
+            'success' => true,
+            'data' => $user
+        ]);
+    }
+
+    public function show($id = '')
+    {
+        $user = User::find($id ?: auth()->user()->id);
+
+        return response()->json([
+            'success' => true,
+            'data' => $user
+        ]);
     }
 }

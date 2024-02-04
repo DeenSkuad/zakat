@@ -21,6 +21,23 @@ return new class extends Migration
             $table->string('postcode', 10);
             $table->string('phone_no', 30);
             $table->unsignedInteger('kariah_id');
+            $table->string('amil_comment')->nullable();
+            $table->string('signature')->nullable();
+            $table->string('front_ic')->nullable();
+            $table->string('back_ic')->nullable();
+            $table->string('muallaf_card')->nullable();
+            $table->unsignedInteger('gender')->nullable();
+            $table->unsignedInteger('marital_status')->nullable();
+            $table->string('employment')->nullable();
+            $table->unsignedBigInteger('salary')->nullable();
+            $table->string('bank_account', 50)->nullable();
+            $table->string('bank_account_no', 30)->nullable();
+            $table->string('total_family_income', 10)->nullable();
+            $table->string('total_family_income', 10)->nullable();
+            $table->string('head_of_family')->nullable();
+            $table->string('adult')->nullable();
+            $table->string('dependants')->nullable();
+            $table->string('dependants_cost')->nullable();
             $table->auditable();
 
             $table->foreign('district_id')->references('id')->on('districts');

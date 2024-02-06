@@ -30,7 +30,6 @@ class DiseaseAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['created_by'] = auth()->user()->id;
 
             Disease::create($input);
 
@@ -65,7 +64,6 @@ class DiseaseAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['updated_by'] = auth()->user()->id;
 
             $disease = Disease::find($id);
             $disease->update($input);
@@ -88,9 +86,6 @@ class DiseaseAPIController extends Controller
         DB::beginTransaction();
         try {
             $disease = Disease::find($id);
-
-            $disease->deleted_by = auth()->user()->id;
-            $disease->save();
 
             $disease->delete();
 

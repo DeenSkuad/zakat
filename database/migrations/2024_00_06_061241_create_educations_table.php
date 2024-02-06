@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('asnaf_education', function (Blueprint $table) {
+        Schema::create('educations', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('asnaf_profile_id');
-            $table->string('highest_education');
-            $table->string('school');
-            $table->unsignedBigInteger('year');
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->auditable();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('asnaf_education');
+        Schema::dropIfExists('educations');
     }
 };

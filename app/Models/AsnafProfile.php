@@ -27,17 +27,24 @@ class AsnafProfile extends Model
         'front_ic',
         'back_ic',
         'muallaf_card',
-        'gender',
-        'marital_status',
-        'employment',
+        'gender_id',
+        'marital_status_id',
+        'occupation_id',
         'salary',
-        'bank_account',
+        'bank_id',
         'bank_account_no',
         'total_family_income',
-        'head_of_family',
-        'adult',
-        'dependants',
-        'dependants_cost',
+        'head_of_family_id',
+        'adult_id',
+        'education_id',
+        'school_id',
+        'year',
+        'total_children',
+        'total_children_ipt',
+        'total_children_school',
+        'total_children_underage',
+        'total_children_oku',
+        'total_dependant_cost',
         'remark',
         'status',
         'deleted_at',
@@ -47,4 +54,9 @@ class AsnafProfile extends Model
         'updated_at',
         'updated_by',
     ];
+
+    public function spouse()
+    {
+        return $this->hasOne(AsnafSpouse::class, 'asnaf_profile_id', 'id');
+    }
 }

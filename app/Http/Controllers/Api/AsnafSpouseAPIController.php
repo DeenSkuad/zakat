@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\AsnafSpouse;
 use Illuminate\Http\Request;
 
-class AsnafSpouseController extends Controller
+class AsnafSpouseAPIController extends Controller
 {
     /**
      * Display a listing of the resource.

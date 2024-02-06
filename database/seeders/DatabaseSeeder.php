@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
             ServicesSeeder::class,
             GendersSeeder::class,
             MaritalStatusesSeeder::class,
+            EducationsSeeder::class,
+            BanksSeeder::class,
+            SchoolsSeeder::class,
+            OccupationsSeeder::class,
+            HeadOfFamiliesSeeder::class,
+            AdultsSeeder::class,
         ]);
     }
 }

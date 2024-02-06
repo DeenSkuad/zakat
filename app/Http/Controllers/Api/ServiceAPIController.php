@@ -76,7 +76,6 @@ class ServiceAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['created_by'] = auth()->user()->id;
 
             Service::create($input);
 
@@ -152,7 +151,6 @@ class ServiceAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['updated_by'] = auth()->user()->id;
 
             $service = Service::find($id);
             $service->update($input);
@@ -195,9 +193,6 @@ class ServiceAPIController extends Controller
         DB::beginTransaction();
         try {
             $service = Service::find($id);
-
-            $service->deleted_by = auth()->user()->id;
-            $service->save();
 
             $service->delete();
 

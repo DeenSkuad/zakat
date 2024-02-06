@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\AdultAPIController;
 use App\Http\Controllers\Api\ApplicationAPIController;
 use App\Http\Controllers\Api\AsnafProfileAPIController;
 use App\Http\Controllers\Api\AuthAPIController;
+use App\Http\Controllers\Api\BankAPIController;
 use App\Http\Controllers\Api\DiseaseAPIController;
 use App\Http\Controllers\Api\PrescriptionAPIController;
 use App\Http\Controllers\Api\ServiceAPIController;
@@ -10,9 +12,14 @@ use App\Http\Controllers\Api\StateAPIController;
 use App\Http\Controllers\Api\CityAPIController;
 use App\Http\Controllers\Api\DistrictAPIController;
 use App\Http\Controllers\Api\GenderAPIController;
+use App\Http\Controllers\Api\HeadOfFamilyAPIController;
 use App\Http\Controllers\Api\KariahAPIController;
 use App\Http\Controllers\Api\MaritalStatusAPIController;
+use App\Http\Controllers\Api\OccupationAPIController;
 use App\Http\Controllers\Api\PaymentAPIController;
+use App\Http\Controllers\Api\SchoolAPIController;
+use App\Http\Controllers\Api\AsnafSpouseAPIController;
+use App\Http\Controllers\Api\EducationAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,13 +52,12 @@ Route::group(['as' => 'api.'], function () {
         });
 
         Route::apiResources([
-            'services' => ServiceAPIController::class,
             'applications' => ApplicationAPIController::class,
             'prescriptions' => PrescriptionAPIController::class,
-            'diseases' => DiseaseAPIController::class,
             'districts' => DistrictAPIController::class,
             'asnaf-profiles' => AsnafProfileAPIController::class,
             'payments' => PaymentAPIController::class,
+            'asnaf-spouses' => AsnafSpouseAPIController::class
         ]);
     });
 
@@ -70,10 +76,18 @@ Route::group(['as' => 'api.'], function () {
     });
 
     Route::apiResources([
+        'services' => ServiceAPIController::class,
+        'diseases' => DiseaseAPIController::class,
         'states' => StateAPIController::class,
         'cities' => CityAPIController::class,
         'kariahs' => KariahAPIController::class,
         'genders' => GenderAPIController::class,
         'marital-statuses' => MaritalStatusAPIController::class,
+        'educations' => EducationAPIController::class,
+        'adults' => AdultAPIController::class,
+        'banks' => BankAPIController::class,
+        'head-of-families' => HeadOfFamilyAPIController::class,
+        'occupations' => OccupationAPIController::class,
+        'schools' => SchoolAPIController::class,
     ]);
 });

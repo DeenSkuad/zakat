@@ -65,10 +65,14 @@ class AsnafProfileAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['updated_by'] = auth()->user()->id;
+            $input['user_id'] = $request->user_id;
+            $input['updated_by'] = $id;
 
-            $asnafProfile = AsnafProfile::find($id);
-            $asnafProfile->update($input);
+            $asnafProfile = AsnafProfile::updateOrCreate([
+                'user_id' => $request->user_id
+            ], [
+                $input
+            ]);
 
             DB::commit();
             return response()->json([

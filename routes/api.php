@@ -9,7 +9,9 @@ use App\Http\Controllers\Api\ServiceAPIController;
 use App\Http\Controllers\Api\StateAPIController;
 use App\Http\Controllers\Api\CityAPIController;
 use App\Http\Controllers\Api\DistrictAPIController;
+use App\Http\Controllers\Api\GenderAPIController;
 use App\Http\Controllers\Api\KariahAPIController;
+use App\Http\Controllers\Api\MaritalStatusAPIController;
 use App\Http\Controllers\Api\PaymentAPIController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +41,7 @@ Route::group(['as' => 'api.'], function () {
             Route::get('/', [AuthAPIController::class, 'index'])->name('index');
             Route::get('/show/{id?}', [AuthAPIController::class, 'show'])->name('show');
             Route::get('/asnaf-by-auth-or-id/{id?}', [AuthAPIController::class, 'asnafByAuthOrId'])->name('asnaf-by-auth-or-id');
+            Route::match(['PUT', 'PATCH'], '/update/{id?}', [AuthAPIController::class, 'update'])->name('update');
         });
 
         Route::apiResources([
@@ -70,5 +73,7 @@ Route::group(['as' => 'api.'], function () {
         'states' => StateAPIController::class,
         'cities' => CityAPIController::class,
         'kariahs' => KariahAPIController::class,
+        'genders' => GenderAPIController::class,
+        'marital-statuses' => MaritalStatusAPIController::class,
     ]);
 });

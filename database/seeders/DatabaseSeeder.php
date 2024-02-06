@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             OauthClientsSeeder::class,
             RolesSeeder::class,
             UsersSeeder::class,
-            ServicesSeeder::class
+            ServicesSeeder::class,
+            GendersSeeder::class,
+            MaritalStatusesSeeder::class,
         ]);
     }
 }

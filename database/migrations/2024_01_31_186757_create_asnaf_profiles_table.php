@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('asnaf_profiles', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('address_1')->nullable();
             $table->string('address_2')->nullable();
             $table->string('address_3')->nullable();
@@ -33,7 +34,6 @@ return new class extends Migration
             $table->string('bank_account', 50)->nullable();
             $table->string('bank_account_no', 30)->nullable();
             $table->string('total_family_income', 10)->nullable();
-            $table->string('total_family_income', 10)->nullable();
             $table->string('head_of_family')->nullable();
             $table->string('adult')->nullable();
             $table->string('dependants')->nullable();
@@ -43,6 +43,7 @@ return new class extends Migration
             $table->foreign('district_id')->references('id')->on('districts');
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('kariah_id')->references('id')->on('kariahs');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

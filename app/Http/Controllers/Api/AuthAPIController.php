@@ -87,6 +87,7 @@ class AuthAPIController extends Controller
                 if (!empty(auth()->user())) {
                     $input['created_by'] = auth()->user()->id;
                 }
+                $input['user_id'] = $request->user_id;
 
                 $asnafProfile = AsnafProfile::create($input);
             }
@@ -133,5 +134,27 @@ class AuthAPIController extends Controller
             'success' => true,
             'data' => $user
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $input = $request->all();
+
+            $user = User::find($id ?: auth()->user()->id);
+
+            $user->update($input);
+
+            DB::commit();
+
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            throw $th;
+        }
     }
 }

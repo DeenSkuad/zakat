@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AsnafProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Uuid;
 
 class AsnafProfileAPIController extends Controller
 {
@@ -64,9 +65,30 @@ class AsnafProfileAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $input = $request->all();
+            $input = $request->except(['front_ic', 'back_ic', 'muallaf_card']);
             $input['user_id'] = $id;
             $input['updated_by'] = $id;
+
+            if ($request->hasFile('front_ic')) {
+                $frontIc = $request->file('front_ic');
+
+                $uuid = Uuid::uuid4();
+                $input['front_ic'] = $frontIc->store($uuid, 'asnaf');
+            }
+
+            if ($request->hasFile('back_ic')) {
+                $backIc = $request->file('back_ic');
+
+                $uuid = Uuid::uuid4();
+                $input['back_ic'] = $backIc->store($uuid, 'asnaf');
+            }
+
+            if ($request->hasFile('muallaf_card')) {
+                $muallafCard = $request->file('muallaf_card');
+
+                $uuid = Uuid::uuid4();
+                $input['muallaf_card'] = $muallafCard->store($uuid, 'asnaf');
+            }
 
             $asnafProfile = AsnafProfile::updateOrCreate([
                 'user_id' => $id

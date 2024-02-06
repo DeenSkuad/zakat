@@ -63,6 +63,14 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+
+        'asnaf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/asnaf'),
+            'url' => env('APP_URL').'/storage/asnaf',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
     ],
 
     /*

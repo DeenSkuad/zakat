@@ -65,11 +65,11 @@ class AsnafProfileAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['user_id'] = $request->user_id;
+            $input['user_id'] = $id;
             $input['updated_by'] = $id;
 
             $asnafProfile = AsnafProfile::updateOrCreate([
-                'user_id' => $request->user_id
+                'user_id' => $id
             ], [
                 $input
             ]);

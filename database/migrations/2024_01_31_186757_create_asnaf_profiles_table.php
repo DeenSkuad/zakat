@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('front_ic')->nullable();
             $table->string('back_ic')->nullable();
             $table->string('muallaf_card')->nullable();
-            $table->unsignedInteger('gender')->nullable();
-            $table->unsignedInteger('marital_status')->nullable();
+            $table->unsignedInteger('gender_id')->nullable();
+            $table->unsignedInteger('marital_status_id')->nullable();
             $table->string('employment')->nullable();
             $table->unsignedBigInteger('salary')->nullable();
             $table->string('bank_account', 50)->nullable();
@@ -44,6 +44,8 @@ return new class extends Migration
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('kariah_id')->references('id')->on('kariahs');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('gender_id')->references('id')->on('genders');
+            $table->foreign('marital_status_id')->references('id')->on('marital_statuses');
         });
     }
 

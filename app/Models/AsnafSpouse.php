@@ -26,4 +26,9 @@ class AsnafSpouse extends Model
         'updated_at',
         'updated_by',
     ];
+
+    public function spouseDependants()
+    {
+        return $this->hasMany(AsnafSpouseDependant::class, 'asnaf_spouse_id', 'id');
+    }
 }

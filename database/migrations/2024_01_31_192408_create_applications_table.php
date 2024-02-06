@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('asnaf_profile_id');
             $table->string('name')->nullable();
             $table->string('ic_no', 15)->nullable();
             $table->string('disease_background')->nullable();
@@ -22,6 +23,8 @@ return new class extends Migration
             $table->string('self_support')->nullable();
             $table->string('comments')->nullable();
             $table->auditable();
+
+            $table->foreign('asnaf_profile_id')->references('id')->on('asnaf_profiles');
         });
     }
 

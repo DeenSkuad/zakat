@@ -55,8 +55,69 @@ class AsnafProfile extends Model
         'updated_by',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
     public function spouse()
     {
         return $this->hasOne(AsnafSpouse::class, 'asnaf_profile_id', 'id');
     }
+
+    public function district()
+    {
+        return $this->hasOne(District::class, 'id', 'district_id');
+    }
+
+    public function state()
+    {
+        return $this->hasOne(State::class, 'id', 'state_id');
+    }
+
+    public function kariah()
+    {
+        return $this->hasOne(Kariah::class, 'id', 'kariah_id');
+    }
+
+    public function gender()
+    {
+        return $this->hasOne(Gender::class, 'id', 'gender_id');
+    }
+
+    public function maritalStatus()
+    {
+        return $this->hasOne(MaritalStatus::class, 'id', 'marital_status_id');
+    }
+
+    public function occupation()
+    {
+        return $this->hasOne(Occupation::class, 'id', 'occupation_id');
+    }
+
+    public function bank()
+    {
+        return $this->hasOne(Bank::class, 'id', 'bank_id');
+    }
+
+    public function headOfFamily()
+    {
+        return $this->hasOne(HeadOfFamily::class, 'id', 'head_of_family_id');
+    }
+
+    public function adult()
+    {
+        return $this->hasOne(Adult::class, 'id', 'adult_id');
+    }
+
+    public function education()
+    {
+        return $this->hasOne(Education::class, 'id', 'education_id');
+    }
+
+    public function school()
+    {
+        return $this->hasOne(School::class, 'id', 'school_id');
+    }
+
 }

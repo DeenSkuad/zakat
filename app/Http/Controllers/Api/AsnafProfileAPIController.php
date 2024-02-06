@@ -52,7 +52,21 @@ class AsnafProfileAPIController extends Controller
      */
     public function show(string $id)
     {
-        $asnafProfile = AsnafProfile::find($id);
+        $asnafProfile = AsnafProfile::with([
+            'user',
+            'spouse.spouseDependants',
+            'district',
+            'state',
+            'kariah',
+            'gender',
+            'maritalStatus',
+            'occupation',
+            'bank',
+            'headOfFamily',
+            'adult',
+            'education',
+            'school',
+        ])->where('user_id', $id)->first();
 
         return response()->json([
             'success' => true,

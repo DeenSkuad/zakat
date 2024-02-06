@@ -13,6 +13,7 @@ class Application extends Model
     public $table = 'applications';
 
     public $fillable = [
+        'asnaf_profile_id',
         'name',
         'ic_no',
         'disease_id',

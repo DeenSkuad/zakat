@@ -1,0 +1,11 @@
+POST {{url}}/auth/login
+
+{
+    "ic_no": "11111",
+    "password": "asdasd"
+}
+
+###
+
+GET {{url}}/users
+Authorization: {{token}}

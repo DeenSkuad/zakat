@@ -14,6 +14,7 @@ class Application extends Model
 
     public $fillable = [
         'asnaf_profile_id',
+        'service_id',
         'name',
         'ic_no',
         'disease_id',

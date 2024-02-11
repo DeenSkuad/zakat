@@ -49,6 +49,7 @@ Route::group(['as' => 'api.'], function () {
             Route::get('/show/{id?}', [AuthAPIController::class, 'show'])->name('show');
             Route::get('/asnaf-by-auth-or-id/{id?}', [AuthAPIController::class, 'asnafByAuthOrId'])->name('asnaf-by-auth-or-id');
             Route::match(['PUT', 'PATCH'], '/update/{id?}', [AuthAPIController::class, 'update'])->name('update');
+            Route::get('/by-role/{id}', [AuthAPIController::class, 'byRole'])->name('by-role');
         });
 
         Route::apiResources([

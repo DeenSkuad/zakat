@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Role;
 
 class AuthAPIController extends Controller
 {
@@ -156,5 +157,15 @@ class AuthAPIController extends Controller
 
             throw $th;
         }
+    }
+
+    public function byRole(string $id)
+    {
+        $users = Role::with('users')->find($id);
+
+        return response()->json([
+            'success' => true,
+            'data' => $users
+        ]);
     }
 }

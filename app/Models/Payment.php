@@ -14,6 +14,7 @@ class Payment extends Model
 
     public $fillable = [
         'user_id',
+        'zakat_type_id',
         'kariah_id',
         'amount',
         'remark',

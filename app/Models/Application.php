@@ -34,6 +34,11 @@ class Application extends Model
         'updated_by',
     ];
 
+    public function service()
+    {
+        return $this->hasOne(Service::class, 'service_id', 'id');
+    }
+
     public function attachments()
     {
         return $this->hasMany(ApplicationAttachment::class, 'application_id', 'id');

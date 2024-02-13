@@ -22,7 +22,7 @@ class AuthController extends Controller
             $user = User::where('ic_no', $request->ic_no)->first();
             Auth::loginUsingId($user->id);
 
-            return redirect('/');
+            return redirect('/home');
         } else {
             return redirect()->back()->withErrors(['password' => 'Invalid login credentials']);
         }

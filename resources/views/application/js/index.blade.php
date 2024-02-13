@@ -1,9 +1,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
-        let baseUrl = "{{ route('services.index') }}";
-        let createUrl = "{{ route('services.create') }}";
+        let baseUrl = "{{ route('applications.index') }}";
+        let createUrl = "{{ route('applications.create') }}";
 
-        $('#serviceDatatable').DataTable({
+        $('#userDatatable').DataTable({
             'scrollCollapse': true,
             'pagingType': 'full_numbers',
             'serverSide': true,
@@ -32,8 +32,8 @@
                 "targets": 1,
                 "data": 'id',
                 "render": function(id, type, full, meta) {
-                    let editUrl = "{{ route('services.edit', 'data-id') }}";
-                    let deleteUrl = "{{ route('services.destroy', 'data-id') }}";
+                    let editUrl = "{{ route('applications.edit', 'data-id') }}";
+                    let deleteUrl = "{{ route('applications.destroy', 'data-id') }}";
 
                     editUrl = editUrl.replace('data-id', id);
                     deleteUrl = deleteUrl.replace('data-id', id);

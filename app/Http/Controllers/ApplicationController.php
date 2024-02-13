@@ -2,27 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
+use App\Models\Application;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 
-class ServiceController extends Controller
+class ApplicationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        if($request->ajax()) {
+        if ($request->ajax()) {
             $input = $request->all();
 
-            Paginator::currentPageResolver(function () use ($input) {
-                return ($input['start'] / $input['length'] + 1);
-            });
+            $output = Application::with([
+                'service'
+            ]);
 
-            $output = new Service();
-
-            // Paginate the results
             $output = $output->paginate($input['length'])->toArray();
 
             $response = [
@@ -35,7 +31,7 @@ class ServiceController extends Controller
             return response()->json($response, 200);
         }
 
-        return view('service.index');
+        return view('application.index');
     }
 
     /**
@@ -43,7 +39,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('service.create');
+        //
     }
 
     /**
@@ -57,23 +53,23 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(string $id)
     {
-        return view('service.show');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(string $id)
     {
-        return view('service.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -81,7 +77,7 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(string $id)
     {
         //
     }

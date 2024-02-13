@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AdultAPIController;
+use App\Http\Controllers\Api\AmilProfileAPIController;
 use App\Http\Controllers\Api\ApplicationAPIController;
 use App\Http\Controllers\Api\AsnafProfileAPIController;
 use App\Http\Controllers\Api\AuthAPIController;
@@ -20,6 +21,7 @@ use App\Http\Controllers\Api\PaymentAPIController;
 use App\Http\Controllers\Api\SchoolAPIController;
 use App\Http\Controllers\Api\AsnafSpouseAPIController;
 use App\Http\Controllers\Api\EducationAPIController;
+use App\Http\Controllers\Api\ZakatTypeAPIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +78,10 @@ Route::group(['as' => 'api.'], function () {
         Route::get('/by-district-id/{id}', [KariahAPIController::class, 'byDistrictId'])->name('by-district-id');
     });
 
+    Route::group(['prefix' => 'amil-profiles', 'as' => 'amil-profiles.'], function () {
+        Route::get('/type/{type}', [AmilProfileAPIController::class, 'byType'])->name('type');
+    });
+
     Route::apiResources([
         'services' => ServiceAPIController::class,
         'diseases' => DiseaseAPIController::class,
@@ -90,5 +96,7 @@ Route::group(['as' => 'api.'], function () {
         'head-of-families' => HeadOfFamilyAPIController::class,
         'occupations' => OccupationAPIController::class,
         'schools' => SchoolAPIController::class,
+        'zakat-types' => ZakatTypeAPIController::class,
+        'amil-profiles' => AmilProfileAPIController::class,
     ]);
 });

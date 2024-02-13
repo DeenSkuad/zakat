@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
             OccupationsSeeder::class,
             HeadOfFamiliesSeeder::class,
             AdultsSeeder::class,
+            ZakatTypesSeeder::class,
+            StatusesSeeder::class,
         ]);
     }
 }

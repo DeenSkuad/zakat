@@ -15,8 +15,13 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('kariah_id');
+            $table->unsignedInteger('zakat_type_id');
             $table->float('amount');
             $table->auditable();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('kariah_id')->references('id')->on('kariahs');
+            $table->foreign('zakat_type_id')->references('id')->on('zakat_types');
         });
     }
 

@@ -6,22 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AmilProfile extends Model
+class ZakatType extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'amil_profiles';
-
-    public const INDIVIDUAL = 'individual';
-    public const ORGANIZATION = 'organization';
+    public $table = 'zakat_types';
 
     public $fillable = [
-        'user_id',
-        'type',
-        'amil_no',
-        'phone_no',
-        'district_id',
-        'kariah_id',
+        'name',
         'remark',
         'status',
         'deleted_at',
@@ -29,6 +21,6 @@ class AmilProfile extends Model
         'created_at',
         'created_by',
         'updated_at',
-        'updated_by'
+        'updated_by',
     ];
 }

@@ -71,5 +71,9 @@ class UsersSeeder extends Seeder
         $users[3]->assignRole('PembantuAmil');
         $users[4]->assignRole('Asnaf');
         $users[5]->assignRole('PembayarZakat');
+
+        DB::table('amil_profiles')->insert([
+            ['user_id' => 3, 'amil_no' => 12345, 'type' => 'organization', 'phone_no' => '+60176336312', 'district_id' => 1, 'kariah_id' => 1]
+        ]);
     }
 }

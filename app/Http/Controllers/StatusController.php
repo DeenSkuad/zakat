@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AmilProfile;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
-class AmilProfileController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class AmilProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AmilProfile $amilProfile)
+    public function show(Status $status)
     {
         //
     }
@@ -34,7 +34,7 @@ class AmilProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, AmilProfile $amilProfile)
+    public function update(Request $request, Status $status)
     {
         //
     }
@@ -42,7 +42,7 @@ class AmilProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AmilProfile $amilProfile)
+    public function destroy(Status $status)
     {
         //
     }

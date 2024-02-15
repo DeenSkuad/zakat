@@ -11,7 +11,9 @@ class AmilManagementController extends Controller
      */
     public function index()
     {
-        //
+        
+
+        return view('amil-management.index');
     }
 
     /**
@@ -19,7 +21,7 @@ class AmilManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('amil-management.create');
     }
 
     /**

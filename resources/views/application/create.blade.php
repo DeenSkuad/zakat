@@ -6,7 +6,7 @@
             <!--begin::Modal header-->
             <div class="modal-header py-7 d-flex justify-content-between">
                 <!--begin::Modal title-->
-                <h2>Create Campaign</h2>
+                <h2>Tambah Permohonan Asnaf</h2>
                 <!--end::Modal title-->
                 <!--begin::Close-->
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
@@ -26,34 +26,29 @@
                     <div class="stepper-nav justify-content-center py-2">
                         <!--begin::Step 1-->
                         <div class="stepper-item me-5 me-md-15 current" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Pengesahan Kesihatan</h3>
+                            <h3 class="stepper-title">Jenis Bantuan</h3>
                         </div>
                         <!--end::Step 1-->
                         <!--begin::Step 2-->
                         <div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Creative Uploads</h3>
+                            <h3 class="stepper-title">Pengesahan Kesihatan</h3>
                         </div>
                         <!--end::Step 2-->
                         <!--begin::Step 3-->
                         <div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Audiences</h3>
+                            <h3 class="stepper-title">Kebenaran Pesakit / Waris</h3>
                         </div>
                         <!--end::Step 3-->
+
                         <!--begin::Step 4-->
-                        <div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Budget Estimates</h3>
-                        </div>
-                        <!--end::Step 4-->
-                        <!--begin::Step 5-->
-                        <div class="stepper-item" data-kt-stepper-element="nav">
+                        <div class="stepper-item d-none" data-kt-stepper-element="nav">
                             <h3 class="stepper-title">Completed</h3>
                         </div>
-                        <!--end::Step 5-->
+                        <!--end::Step 4-->
                     </div>
                     <!--end::Nav-->
                     <!--begin::Form-->
-                    <form class="pt-15 pb-10" novalidate="novalidate"
-                        id="kt_modal_create_campaign_stepper_form">
+                    <form class="pt-15 pb-10" novalidate="novalidate" id="kt_modal_create_campaign_stepper_form">
                         <!--begin::Step 1-->
                         <div class="current" data-kt-stepper-element="content">
                             <!--begin::Wrapper-->
@@ -62,8 +57,7 @@
                                 <div class="pb-10 pb-lg-15">
                                     <!--begin::Title-->
                                     <h2 class="fw-bold d-flex align-items-center text-gray-900">Bantuan untuk
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="Bantuan untuk kategori asnaf fakir">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="Bantuan untuk kategori asnaf fakir">
                                             <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -89,19 +83,28 @@
                                     <select class="form-select">
                                         <option selected disabled>Sila pilih jenis bantuan</option>
                                         @foreach($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                        <option value="{{ $service->id }}">{{ $service->name }}</option>
                                         @endforeach
                                     </select>
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
+
+                            </div>
+                            <!--end::Wrapper-->
+                        </div>
+                        <!--end::Step 1-->
+                        <!--begin::Step 2-->
+                        <div data-kt-stepper-element="content">
+                            <!--begin::Wrapper-->
+                            <div class="w-100">
+
                                 <!--begin::Input group-->
                                 <div class="fv-row mb-10">
                                     <!--begin::Label-->
                                     <label class="d-block fw-semibold fs-6 mb-5">
                                         <span class="required">Borang Pengesahan Kesihatan</span>
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="E.g. Select a logo to represent the company that's running the campaign.">
+                                        <span class="ms-1" data-bs-toggle="tooltip" title="E.g. Select a logo to represent the company that's running the campaign.">
                                             <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -173,28 +176,8 @@
                                         <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
                                     </div>
                                 </div>
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Step 1-->
-                        <!--begin::Step 2-->
-                        <div data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="pb-10 pb-lg-12">
-                                    <!--begin::Title-->
-                                    <h1 class="fw-bold text-gray-900">Kebenaran Pesakit / Waris</h1>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-4">
-                                        <font color="red">Saya dengan ini membenarkan pihak Lembaga Zakat Perlis menerima maklumat kesihatan terkini saya daripada pihak hospital bagi tujuan permohonan bantuan zakat.</font>
-                                    </div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-10">
+                                <div class="fv-row mb-10 d-none">
                                     <!--begin::Dropzone-->
                                     <div class="dropzone" id="kt_modal_create_campaign_files_upload">
                                         <!--begin::Message-->
@@ -218,15 +201,14 @@
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
-                                <div class="mb-10">
+                                <div class="mb-10 d-none">
                                     <!--begin::Label-->
                                     <label class="fs-6 fw-semibold mb-2">Uploaded File</label>
                                     <!--End::Label-->
                                     <!--begin::Files-->
                                     <div class="mh-300px scroll-y me-n7 pe-7">
                                         <!--begin::File-->
-                                        <div
-                                            class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
+                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-35px">
@@ -235,8 +217,7 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-6">
-                                                    <a href="#"
-                                                        class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Product
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Product
                                                         Specifications</a>
                                                     <div class="fw-semibold text-muted">230kb</div>
                                                 </div>
@@ -244,9 +225,7 @@
                                             </div>
                                             <!--begin::Menu-->
                                             <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm"
-                                                    data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Edit">
+                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
                                                     <option></option>
                                                     <option value="1">Remove</option>
                                                     <option value="2">Modify</option>
@@ -257,8 +236,7 @@
                                         </div>
                                         <!--end::File-->
                                         <!--begin::File-->
-                                        <div
-                                            class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
+                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-35px">
@@ -267,8 +245,7 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-6">
-                                                    <a href="#"
-                                                        class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
                                                         Creative Poster</a>
                                                     <div class="fw-semibold text-muted">2.4mb</div>
                                                 </div>
@@ -276,9 +253,7 @@
                                             </div>
                                             <!--begin::Menu-->
                                             <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm"
-                                                    data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Edit">
+                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
                                                     <option></option>
                                                     <option value="1">Remove</option>
                                                     <option value="2">Modify</option>
@@ -289,19 +264,16 @@
                                         </div>
                                         <!--end::File-->
                                         <!--begin::File-->
-                                        <div
-                                            class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
+                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/folder-document.svg"
-                                                        alt="icon" />
+                                                    <img src="assets/media/svg/files/folder-document.svg" alt="icon" />
                                                 </div>
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-6">
-                                                    <a href="#"
-                                                        class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
                                                         Landing Page Source</a>
                                                     <div class="fw-semibold text-muted">1.12mb</div>
                                                 </div>
@@ -309,9 +281,7 @@
                                             </div>
                                             <!--begin::Menu-->
                                             <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm"
-                                                    data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Edit">
+                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
                                                     <option></option>
                                                     <option value="1">Remove</option>
                                                     <option value="2">Modify</option>
@@ -322,8 +292,7 @@
                                         </div>
                                         <!--end::File-->
                                         <!--begin::File-->
-                                        <div
-                                            class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
+                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-35px">
@@ -332,8 +301,7 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-6">
-                                                    <a href="#"
-                                                        class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Landing
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Landing
                                                         Page Styling</a>
                                                     <div class="fw-semibold text-muted">85kb</div>
                                                 </div>
@@ -341,9 +309,7 @@
                                             </div>
                                             <!--begin::Menu-->
                                             <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm"
-                                                    data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Edit">
+                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
                                                     <option></option>
                                                     <option value="1">Remove</option>
                                                     <option value="2">Modify</option>
@@ -354,8 +320,7 @@
                                         </div>
                                         <!--end::File-->
                                         <!--begin::File-->
-                                        <div
-                                            class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
+                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
                                             <div class="d-flex align-items-center">
                                                 <!--begin::Avatar-->
                                                 <div class="symbol symbol-35px">
@@ -364,8 +329,7 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-6">
-                                                    <a href="#"
-                                                        class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Design
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Design
                                                         Source Files</a>
                                                     <div class="fw-semibold text-muted">48mb</div>
                                                 </div>
@@ -373,9 +337,7 @@
                                             </div>
                                             <!--begin::Menu-->
                                             <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm"
-                                                    data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Edit">
+                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
                                                     <option></option>
                                                     <option value="1">Remove</option>
                                                     <option value="2">Modify</option>
@@ -395,8 +357,7 @@
                                                 <!--end::Avatar-->
                                                 <!--begin::Details-->
                                                 <div class="ms-6">
-                                                    <a href="#"
-                                                        class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
+                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
                                                         Plan Document</a>
                                                     <div class="fw-semibold text-muted">27kb</div>
                                                 </div>
@@ -404,9 +365,7 @@
                                             </div>
                                             <!--begin::Menu-->
                                             <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm"
-                                                    data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Edit">
+                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
                                                     <option></option>
                                                     <option value="1">Remove</option>
                                                     <option value="2">Modify</option>
@@ -420,6 +379,7 @@
                                     <!--end::Files-->
                                 </div>
                                 <!--end::Input group-->
+
                             </div>
                             <!--end::Wrapper-->
                         </div>
@@ -431,274 +391,59 @@
                                 <!--begin::Heading-->
                                 <div class="pb-10 pb-lg-12">
                                     <!--begin::Title-->
-                                    <h1 class="fw-bold text-gray-900">Configure Audiences</h1>
+                                    <h1 class="fw-bold text-gray-900">Kebenaran Pesakit / Waris</h1>
                                     <!--end::Title-->
                                     <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-4">If you need more info, please check
-                                        <a href="#" class="link-primary">Campaign Guidelines</a>
+                                    <div class="text-muted fw-semibold fs-4">
+                                        <font color="red">Saya dengan ini membenarkan pihak Lembaga Zakat Perlis menerima maklumat kesihatan terkini saya daripada pihak hospital bagi tujuan permohonan bantuan zakat.</font>
                                     </div>
                                     <!--end::Description-->
                                 </div>
                                 <!--end::Heading-->
                                 <!--begin::Input group-->
-                                <div class="fv-row mb-10">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Gender
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="Show your ads to either men or women, or select 'All' for both">
-                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></label>
-                                    <!--End::Label-->
-                                    <!--begin::Row-->
-                                    <div class="row g-9" data-kt-buttons="true"
-                                        data-kt-buttons-target="[data-kt-button='true']">
-                                        <!--begin::Col-->
-                                        <div class="col">
-                                            <!--begin::Option-->
-                                            <label
-                                                class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6"
-                                                data-kt-button="true">
-                                                <!--begin::Radio-->
-                                                <span
-                                                    class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="campaign_gender" value="1" checked="checked" />
-                                                </span>
-                                                <!--end::Radio-->
-                                                <!--begin::Info-->
-                                                <span class="ms-5">
-                                                    <span class="fs-4 fw-bold text-gray-800 d-block">All</span>
-                                                </span>
-                                                <!--end::Info-->
-                                            </label>
-                                            <!--end::Option-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col">
-                                            <!--begin::Option-->
-                                            <label
-                                                class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6"
-                                                data-kt-button="true">
-                                                <!--begin::Radio-->
-                                                <span
-                                                    class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="campaign_gender" value="2" />
-                                                </span>
-                                                <!--end::Radio-->
-                                                <!--begin::Info-->
-                                                <span class="ms-5">
-                                                    <span class="fs-4 fw-bold text-gray-800 d-block">Male</span>
-                                                </span>
-                                                <!--end::Info-->
-                                            </label>
-                                            <!--end::Option-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col">
-                                            <!--begin::Option-->
-                                            <label
-                                                class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6"
-                                                data-kt-button="true">
-                                                <!--begin::Radio-->
-                                                <span
-                                                    class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="campaign_gender" value="3" />
-                                                </span>
-                                                <!--end::Radio-->
-                                                <!--begin::Info-->
-                                                <span class="ms-5">
-                                                    <span class="fs-4 fw-bold text-gray-800 d-block">Female</span>
-                                                </span>
-                                                <!--end::Info-->
-                                            </label>
-                                            <!--end::Option-->
-                                        </div>
-                                        <!--end::Col-->
+                                <div class="row">
+                                    <div class="mb-10 fv-row col-md-4">
+                                        <label class="required form-label mb-3">Nama Penuh Waris</label>
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="" placeholder="" value="" autocomplete="off" />
                                     </div>
-                                    <!--end::Row-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-10">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Age
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="Select the minimum and maximum age of the people who will find your ad relevant.">
-                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></label>
-                                    <!--End::Label-->
-                                    <!--begin::Slider-->
-                                    <div class="d-flex flex-stack">
-                                        <div id="kt_modal_create_campaign_age_min"
-                                            class="fs-7 fw-semibold text-muted"></div>
-                                        <div id="kt_modal_create_campaign_age_slider" class="noUi-sm w-100 ms-5 me-8">
-                                        </div>
-                                        <div id="kt_modal_create_campaign_age_max"
-                                            class="fs-7 fw-semibold text-muted"></div>
+                                    <div class="mb-10 fv-row col-md-4">
+                                        <label class="required form-label mb-3">No. Kad Pengenalan Waris</label>
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="" placeholder="" value="" autocomplete="off" />
                                     </div>
-                                    <!--end::Slider-->
+                                    <div class="mb-10 fv-row col-md-4">
+                                        <label class="required form-label mb-3">Tarikh Permohonan</label>
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="" placeholder="" value="" autocomplete="off" />
+                                    </div>
                                 </div>
                                 <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-10">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Location
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="Enter one or more location points for more specific targeting.">
-                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></label>
-                                    <!--End::Label-->
-                                    <!--begin::Tagify-->
-                                    <input class="form-control d-flex align-items-center" value=""
-                                        id="kt_modal_create_campaign_location"
-                                        data-kt-flags-path="assets/media/flags/" />
-                                    <!--end::Tagify-->
-                                </div>
-                                <!--end::Input group-->
+
                             </div>
                             <!--end::Wrapper-->
                         </div>
                         <!--end::Step 3-->
+
                         <!--begin::Step 4-->
-                        <div data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="pb-10 pb-lg-12">
-                                    <!--begin::Title-->
-                                    <h1 class="fw-bold text-gray-900">Budget Estimates</h1>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-4">If you need more info, please check
-                                        <a href="#" class="link-primary">Campaign Guidelines</a>
-                                    </div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-10">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Campaign Duration
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="Choose how long you want your ad to run for">
-                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></label>
-                                    <!--end::Label-->
-                                    <!--begin::Duration option-->
-                                    <div class="d-flex gap-9 mb-7">
-                                        <!--begin::Button-->
-                                        <button type="button"
-                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary active"
-                                            id="kt_modal_create_campaign_duration_all">Continuous duration
-                                            <br />
-                                            <span class="fs-7">Your ad will run continuously for a daily
-                                                budget.</span></button>
-                                        <!--end::Button-->
-                                        <!--begin::Button-->
-                                        <button type="button"
-                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary btn-outline-default"
-                                            id="kt_modal_create_campaign_duration_fixed">Fixed duration
-                                            <br />
-                                            <span class="fs-7">Your ad will run on the specified dates
-                                                only.</span></button>
-                                        <!--end::Button-->
-                                    </div>
-                                    <!--end::Duration option-->
-                                    <!--begin::Datepicker-->
-                                    <input class="form-control form-control-solid d-none"
-                                        placeholder="Pick date & time" id="kt_modal_create_campaign_datepicker" />
-                                    <!--end::Datepicker-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-10">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Daily Budget
-                                        <span class="ms-1" data-bs-toggle="tooltip"
-                                            title="Choose the budget allocated for each day. Higher budget will generate better results">
-                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span></label>
-                                    <!--end::Label-->
-                                    <!--begin::Slider-->
-                                    <div class="d-flex flex-column text-center">
-                                        <div class="d-flex align-items-start justify-content-center mb-7">
-                                            <span class="fw-bold fs-4 mt-1 me-2">$</span>
-                                            <span class="fw-bold fs-3x"
-                                                id="kt_modal_create_campaign_budget_label"></span>
-                                            <span class="fw-bold fs-3x">.00</span>
-                                        </div>
-                                        <div id="kt_modal_create_campaign_budget_slider" class="noUi-sm"></div>
-                                    </div>
-                                    <!--end::Slider-->
-                                </div>
-                                <!--end::Input group-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Step 4-->
-                        <!--begin::Step 5-->
-                        <div data-kt-stepper-element="content">
+                        <div data-kt-stepper-element="content" class="">
                             <!--begin::Wrapper-->
                             <div class="w-100">
                                 <!--begin::Heading-->
                                 <div class="pb-12 text-center">
                                     <!--begin::Title-->
-                                    <h1 class="fw-bold text-gray-900">Campaign Created!</h1>
+                                    <h1 class="fw-bold text-gray-900">Permohonan Asnaf Telah Berjaya Dihantar</h1>
                                     <!--end::Title-->
                                     <!--begin::Description-->
-                                    <div class="fw-semibold text-muted fs-4">You will receive an email with with the
-                                        summary of your newly created campaign!</div>
+                                    <div class="fw-semibold text-muted fs-4">Permohonan asnaf sudah dihantar untuk diproses.</div>
                                     <!--end::Description-->
                                 </div>
                                 <!--end::Heading-->
-                                <!--begin::Actions-->
-                                <div class="d-flex flex-center pb-20">
-                                    <button id="kt_modal_create_campaign_create_new" type="button"
-                                        class="btn btn-lg btn-light me-3" data-kt-element="complete-start">Create New
-                                        Campaign</button>
-                                    <a href="" class="btn btn-lg btn-primary" data-bs-toggle="tooltip"
-                                        title="Coming Soon">View Campaign</a>
-                                </div>
-                                <!--end::Actions-->
-                                <!--begin::Illustration-->
-                                <div class="text-center px-4">
-                                    <img src="assets/media/illustrations/sketchy-1/9.png" alt=""
-                                        class="mww-100 mh-350px" />
-                                </div>
-                                <!--end::Illustration-->
                             </div>
                         </div>
-                        <!--end::Step 5-->
+                        <!--end::Step 4-->
                         <!--begin::Actions-->
                         <div class="d-flex flex-stack pt-10">
                             <!--begin::Wrapper-->
                             <div class="me-2">
-                                <button type="button" class="btn btn-lg btn-light-primary me-3"
-                                    data-kt-stepper-action="previous" data-kt-stepper-state="hide-on-last-step">
+                                <button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous" data-kt-stepper-state="hide-on-last-step">
                                     <i class="ki-duotone ki-arrow-left fs-3 me-1">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -707,8 +452,7 @@
                             <!--end::Wrapper-->
                             <!--begin::Wrapper-->
                             <div>
-                                <button type="button" class="btn btn-lg btn-primary"
-                                    data-kt-stepper-action="submit">
+                                <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
                                     <span class="indicator-label">Submit
                                         <i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
                                             <span class="path1"></span>
@@ -717,8 +461,7 @@
                                     <span class="indicator-progress">Sila tunggu...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
-                                <button type="button" class="btn btn-lg btn-primary"
-                                    data-kt-stepper-action="next">Seterusnya
+                                <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Seterusnya
                                     <i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
                                         <span class="path1"></span>
                                         <span class="path2"></span>

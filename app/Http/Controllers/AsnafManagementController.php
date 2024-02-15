@@ -11,7 +11,9 @@ class AsnafManagementController extends Controller
      */
     public function index()
     {
-        //
+        
+
+        return view('asnaf-management.index');
     }
 
     /**
@@ -19,7 +21,7 @@ class AsnafManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('asnaf-management.create');
     }
 
     /**

@@ -17,8 +17,13 @@ class ApplicationController extends Controller
             $input = $request->all();
 
             $output = Application::with([
-                'service'
+                'service',
+                'name',
+                'ic_no',
+                'status',
             ]);
+
+            
 
             $output = $output->paginate($input['length'])->toArray();
 

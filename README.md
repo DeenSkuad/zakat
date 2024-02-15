@@ -64,3 +64,44 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Introduction
+Zakat Fintech
+
+## Table Of Contents
+
+<details><summary>Click to expand</summary><p>
+
+- [Introduction](#introduction)
+- [Table Of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+
+</p></details>
+
+## Installation
+
+Laravel installation
+
+```bash
+composer install
+```
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+```bash
+php artisan passport:install
+```
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+
+For .env for laravel, can copy from .env.example
+
+

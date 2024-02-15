@@ -1238,7 +1238,7 @@
                         </div>
                         <!--end::Header-->
                         <!--begin::Card body-->
-                        <div class="card-body pt-0">
+                        <div class="card-body pt-0 ">
                             <!--begin::Chart-->
                             <div id="kt_charts_widget_24" class="min-h-auto" style="height: 400px"></div>
                             <!--end::Chart-->

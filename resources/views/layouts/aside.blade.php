@@ -49,7 +49,7 @@
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <div class="menu-item">
-                        <a class="menu-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <a class="menu-link {{ Route::is('asnaf-managements.index') ? 'active' : '' }}" href="{{ route('asnaf-managements.index') }}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-abstract-13 fs-2">
                                     <span class="path1"></span>
@@ -75,7 +75,7 @@
                 </div>
                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <div class="menu-item">
-                        <a class="menu-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        <a class="menu-link {{ Route::is('amil-managements.index') ? 'active' : '' }}" href="{{ route('amil-managements.index') }}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-abstract-13 fs-2">
                                     <span class="path1"></span>

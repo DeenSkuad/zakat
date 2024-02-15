@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Kariah;
+use App\Models\PaymentDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class KariahAPIController extends Controller
+class PaymentAPIDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $kariahs = Kariah::all();
+        $paymentDetailDetails = PaymentDetail::all();
 
         return response()->json([
             'success' => true,
-            'data' => $kariahs
+            'data' => $paymentDetailDetails
         ]);
     }
 
@@ -32,7 +31,7 @@ class KariahAPIController extends Controller
             $input = $request->all();
             $input['created_by'] = auth()->user()->id;
 
-            Kariah::create($input);
+            PaymentDetail::create($input);
 
             DB::commit();
             return response()->json([
@@ -49,11 +48,11 @@ class KariahAPIController extends Controller
      */
     public function show(string $id)
     {
-        $kariah = Kariah::find($id);
+        $paymentDetail = PaymentDetail::find($id);
 
         return response()->json([
             'success' => true,
-            'data' => $kariah
+            'data' => $paymentDetail
         ]);
     }
 
@@ -67,8 +66,8 @@ class KariahAPIController extends Controller
             $input = $request->all();
             $input['updated_by'] = auth()->user()->id;
 
-            $kariah = Kariah::find($id);
-            $kariah->update($input);
+            $paymentDetail = PaymentDetail::find($id);
+            $paymentDetail->update($input);
 
             DB::commit();
             return response()->json([
@@ -87,12 +86,12 @@ class KariahAPIController extends Controller
     {
         DB::beginTransaction();
         try {
-            $kariah = Kariah::find($id);
+            $paymentDetail = PaymentDetail::find($id);
 
-            $kariah->deleted_by = auth()->user()->id;
-            $kariah->save();
+            $paymentDetail->deleted_by = auth()->user()->id;
+            $paymentDetail->save();
 
-            $kariah->delete();
+            $paymentDetail->delete();
 
             DB::commit();
             return response()->json([
@@ -102,25 +101,5 @@ class KariahAPIController extends Controller
             DB::rollBack();
             throw $th;
         }
-    }
-
-    public function byDistrictId($districtId)
-    {
-        $kariah = Kariah::where('city_id', $districtId)->get();
-
-        return response()->json([
-            'success' => true,
-            'data' => $kariah
-        ]);
-    }
-
-    public function byPostcode($postcode)
-    {
-        $district = Kariah::where('postcode', $postcode)->get();
-
-        return response()->json([
-            'success' => true,
-            'data' => $district
-        ]);
     }
 }

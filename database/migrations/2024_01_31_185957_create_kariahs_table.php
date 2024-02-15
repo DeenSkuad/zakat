@@ -15,6 +15,8 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('district_id');
             $table->string('name', 100);
+            $table->string('address');
+            $table->string('postcode', 10);
             $table->auditable();
 
             $table->foreign('district_id')->references('id')->on('districts');

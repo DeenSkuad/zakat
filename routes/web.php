@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KariahController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\StateController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,10 +44,22 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
 
+    Route::group(['prefix' => 'cities', 'as' => 'cities.'], function () {
+        Route::get('/by-state/{id}', [CityController::class, 'byState'])->name('by-state');
+    });
+
+    Route::group(['prefix' => 'districts', 'as' => 'districts.'], function () {
+        Route::get('/by-city/{id}', [DistrictController::class, 'byCity'])->name('by-city');
+    });
+
     Route::resources([
         'users' => UserController::class,
         'services' => ServiceController::class,
         'kariahs' => KariahController::class,
         'applications' => ApplicationController::class,
+        'states' => StateController::class,
+        'cities' => CityController::class,
+        'districts' => DistrictController::class,
+        'kariahs' => KariahController::class,
     ]);
 });

@@ -2,33 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\District;
-use App\Models\Kariah;
 use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 
-class KariahController extends Controller
+class StateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        if ($request->ajax()) {
+        if($request->ajax()) {
             $input = $request->all();
 
             Paginator::currentPageResolver(function () use ($input) {
                 return ($input['start'] / $input['length'] + 1);
             });
 
-            $output = Kariah::with(['district']);
+            $output = State::with(['cities']);
 
-            if (!empty($input['search']['value'])) {
-                $output = $output->where('name', 'LIKE', "%{$input['search']['value']}%")->orWhere('address', 'LIKE', "%{$input['search']['value']}%")
-                    ->orWhere('postcode', 'LIKE', "%{$input['search']['value']}%")->orWhereHas('district', function ($query) use ($input) {
-                        $query->where('name', 'LIKE', "%{$input['search']['value']}%");
-                    });
+            if(!empty($input['search']['value'])) {
+                $output = $output->where('name', 'LIKE', "%{$input['search']['value']}%");
             }
 
             // Paginate the results
@@ -44,7 +39,7 @@ class KariahController extends Controller
             return response()->json($response, 200);
         }
 
-        return view('kariah.index');
+        return view('state.index');
     }
 
     /**
@@ -52,11 +47,7 @@ class KariahController extends Controller
      */
     public function create()
     {
-        $states = State::get();
-
-        return view('kariah.create')->with([
-            'states' => $states
-        ]);
+        return view('state.create');
     }
 
     /**
@@ -66,7 +57,7 @@ class KariahController extends Controller
     {
         $input = $request->all();
 
-        $city = Kariah::create($input);
+        $state = State::create($input);
 
         return response()->json([
             'success' => true,
@@ -79,14 +70,10 @@ class KariahController extends Controller
      */
     public function show(string $id)
     {
-        $kariah = Kariah::find($id);
-        $states = State::get();
-        $districts = District::get();
+        $state = State::find($id);
 
-        return view('kariah.show')->with([
-            'kariah' => $kariah,
-            'states' => $states,
-            'districts' => $districts,
+        return view('state.show')->with([
+            'state' => $state
         ]);
     }
 
@@ -95,14 +82,10 @@ class KariahController extends Controller
      */
     public function edit(string $id)
     {
-        $kariah = Kariah::find($id);
-        $states = State::get();
-        $districts = District::get();
+        $state = State::find($id);
 
-        return view('kariah.edit')->with([
-            'kariah' => $kariah,
-            'states' => $states,
-            'districts' => $districts,
+        return view('state.edit')->with([
+            'state' => $state
         ]);
     }
 
@@ -113,9 +96,9 @@ class KariahController extends Controller
     {
         $input = $request->all();
 
-        $city = Kariah::find($id);
+        $state = State::find($id);
 
-        $city->update($input);
+        $state->update($input);
 
         return response()->json([
             'success' => true,
@@ -126,9 +109,9 @@ class KariahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kariah $kariah)
+    public function destroy(State $state)
     {
-        $kariah->delete();
+        $state->delete();
 
         return response()->json([
             'success' => true,

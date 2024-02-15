@@ -15,6 +15,8 @@ class Kariah extends Model
     public $fillable = [
         'district_id',
         'name',
+        'address',
+        'postcode',
         'remark',
         'status',
         'deleted_at',
@@ -24,4 +26,9 @@ class Kariah extends Model
         'updated_at',
         'updated_by',
     ];
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id', 'id');
+    }
 }

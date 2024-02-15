@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedInteger('state_id');
             $table->unsignedInteger('city_id');
             $table->string('name');
-            $table->string('postcode', 10);
             $table->auditable();
 
             $table->foreign('state_id')->references('id')->on('states');

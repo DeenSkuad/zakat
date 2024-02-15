@@ -123,14 +123,4 @@ class DistrictAPIController extends Controller
             'data' => $district
         ]);
     }
-
-    public function byPostcode($postcode)
-    {
-        $district = District::where('postcode', $postcode)->get();
-
-        return response()->json([
-            'success' => true,
-            'data' => $district
-        ]);
-    }
 }

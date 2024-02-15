@@ -146,7 +146,8 @@ class StatesSeeder extends Seeder
             ],
             "Perlis" => [
                 "Kangar",
-                "Kuala Perlis"
+                "Kuala Perlis",
+                "Arau"
             ],
             "Pulau Pinang" => [
                 "Bukit Mertajam",

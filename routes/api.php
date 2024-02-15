@@ -71,11 +71,11 @@ Route::group(['as' => 'api.'], function () {
     Route::group(['prefix' => 'districts', 'as' => 'districts.'], function () {
         Route::get('/by-state-id/{id}', [DistrictAPIController::class, 'byStateId'])->name('by-state-id');
         Route::get('/by-city-id/{id}', [DistrictAPIController::class, 'byCityId'])->name('by-city-id');
-        Route::get('/by-postcode/{postcode}', [DistrictAPIController::class, 'byPostcode'])->name('by-postcode-id');
     });
 
     Route::group(['prefix' => 'kariahs', 'as' => 'kariahs.'], function () {
         Route::get('/by-district-id/{id}', [KariahAPIController::class, 'byDistrictId'])->name('by-district-id');
+        Route::get('/by-postcode/{postcode}', [KariahAPIController::class, 'byPostcode'])->name('by-postcode-id');
     });
 
     Route::group(['prefix' => 'amil-profiles', 'as' => 'amil-profiles.'], function () {

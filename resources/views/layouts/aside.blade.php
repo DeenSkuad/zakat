@@ -31,6 +31,63 @@
                 </div>
                 <div class="menu-item pt-5">
                     <div class="menu-content">
+                        <span class="menu-heading fw-bold text-uppercase fs-7">Pengurusan</span>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                    <div class="menu-item">
+                        <a class="menu-link {{ Route::is('applications.index') ? 'active' : '' }}" href="{{ route('applications.index') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-13 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Permohonan Asnaf</span>
+                        </a>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                    <div class="menu-item">
+                        <a class="menu-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-13 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Pengurusan Asnaf</span>
+                        </a>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                    <div class="menu-item">
+                        <a class="menu-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-13 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Tuntutan Upah</span>
+                        </a>
+                    </div>
+                </div>
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+                    <div class="menu-item">
+                        <a class="menu-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-13 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Pengurusan Amil</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-item pt-5">
+                    <div class="menu-content">
                         <span class="menu-heading fw-bold text-uppercase fs-7">Tetapan</span>
                     </div>
                 </div>

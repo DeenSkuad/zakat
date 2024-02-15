@@ -2,37 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Application;
-use App\Models\Service;
 use Illuminate\Http\Request;
 
-class ApplicationController extends Controller
+class AmilManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->ajax()) {
-            $input = $request->all();
-
-            $output = Application::with([
-                'service'
-            ]);
-
-            $output = $output->paginate($input['length'])->toArray();
-
-            $response = [
-                "draw" => $input['draw'],
-                "recordsTotal" => intval($output['total']),
-                "recordsFiltered" => intval($output['total']),
-                "data" => $output['data'],
-            ];
-
-            return response()->json($response, 200);
-        }
-
-        return view('application.index');
+        //
     }
 
     /**
@@ -40,11 +19,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        $services = Service::get();
-
-        return view('application.create')->with([
-            'services' => $services,
-        ]);
+        //
     }
 
     /**

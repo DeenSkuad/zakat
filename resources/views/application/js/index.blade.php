@@ -10,13 +10,7 @@
             'processing': true,
             'ordering': false,
             dom: '<"row"<"col-md-12"B>><"row"<"col-md-3"l><"col-md-6"><"col-md-3"f>>t<"row"<"col-md-6"i><"col-md-6"p>>',
-            buttons: [{
-                    text: 'Tambah',
-                    attr:  {
-                        "data-action": createUrl,
-                        "onClick": "getModalContent(this)",
-                    }
-                },
+            buttons: [
                 'excel', 'pdf'
             ],
             ajax: {

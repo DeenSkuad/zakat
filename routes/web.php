@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AmilManagementController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\AsnafManagementController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KariahController;
@@ -56,10 +59,13 @@ Route::group(['middleware' => 'auth'], function () {
         'users' => UserController::class,
         'services' => ServiceController::class,
         'kariahs' => KariahController::class,
-        'applications' => ApplicationController::class,
         'states' => StateController::class,
         'cities' => CityController::class,
         'districts' => DistrictController::class,
         'kariahs' => KariahController::class,
+        'applications' => ApplicationController::class,
+        'asnaf-managements' => AsnafManagementController::class,
+        'claims' => ClaimController::class,
+        'amil-managements' => AmilManagementController::class,
     ]);
 });

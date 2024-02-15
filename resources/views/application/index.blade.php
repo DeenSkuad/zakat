@@ -9,6 +9,9 @@
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label fw-bold fs-3 mb-1">Permohonan</span>
                         </h3>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-primary" data-action="{{ route('applications.create') }}" onclick="getModalContent(this)"><i class="fa fa-plus"></i> Tambah</button>
+                        </div>
                     </div>
                     <div class="card-body py-3">
                         <div class="table-responsive">
@@ -17,6 +20,8 @@
                                 <thead class="thead-light">
                                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                         <th>Nama</th>
+                                        <th>No. K/P</th>
+                                        <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

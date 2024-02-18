@@ -22,7 +22,7 @@
             columns: [
                 { "data" : "name" },
                 { "data" : "ic_no" },
-                { "data" : "status" },
+                { "data" : "status.name" },
             ],
             columnDefs: [{
                 "targets": 3,

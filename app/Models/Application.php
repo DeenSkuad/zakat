@@ -34,9 +34,14 @@ class Application extends Model
         'updated_by',
     ];
 
+    public function asnaf()
+    {
+        return $this->hasOne(AsnafProfile::class, 'id', 'asnaf_profile_id');
+    }
+
     public function service()
     {
-        return $this->hasOne(Service::class, 'service_id', 'id');
+        return $this->hasOne(Service::class, 'id', 'service_id');
     }
 
     public function attachments()
@@ -52,5 +57,10 @@ class Application extends Model
     public function prescriptions()
     {
         return $this->hasManyThrough(Prescription::class, ApplicationPrescription::class, 'application_id', 'id', 'id', 'prescription_id');
+    }
+
+    public function status()
+    {
+        return $this->hasOne(Status::class, 'status', 'id');
     }
 }

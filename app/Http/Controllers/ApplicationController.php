@@ -19,10 +19,12 @@ class ApplicationController extends Controller
             $input = $request->all();
 
             $output = Application::with([
+                'asnaf',
                 'service',
-                'name',
-                'ic_no',
-                'status',
+                'attachments',
+                'diseases',
+                'prescriptions',
+                'status'
             ]);
 
             $output = $output->paginate($input['length'])->toArray();
@@ -64,7 +66,6 @@ class ApplicationController extends Controller
         $input = $request->all();
 
         $user = User::find($request->user_id);
-        dd($user->asnaf);
         $input['asnaf_profile_id'] = $user->asnaf->id;
 
 

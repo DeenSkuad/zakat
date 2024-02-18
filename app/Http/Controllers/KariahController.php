@@ -135,4 +135,24 @@ class KariahController extends Controller
             'message' => 'Data berjaya dibuang'
         ]);
     }
+
+    public function byDistrict($districtId)
+    {
+        $kariahs = Kariah::where('district_id', $districtId)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $kariahs
+        ]);
+    }
+
+    public function byPostcode($postcode)
+    {
+        $kariahs = Kariah::where('postcode', $postcode)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $kariahs
+        ]);
+    }
 }

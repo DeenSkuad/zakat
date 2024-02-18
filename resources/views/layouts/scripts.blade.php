@@ -46,7 +46,6 @@
             $("#baseAjaxModal").html(response);
             $(baseAjaxModalContent).modal("show");
         });
-        console.log("getModalContent", getModalContent);
     }
 
     const processCreation = (elem, datatable, data) => {

@@ -53,6 +53,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'districts', 'as' => 'districts.'], function () {
         Route::get('/by-city/{id}', [DistrictController::class, 'byCity'])->name('by-city');
+        Route::get('/by-state/{id}', [DistrictController::class, 'byState'])->name('by-state');
+    });
+
+    Route::group(['prefix' => 'kariahs', 'as' => 'kariahs.'], function () {
+        Route::get('/by-district/{id}', [KariahController::class, 'byDistrict'])->name('by-district');
+        Route::get('/by-postcode/{id}', [KariahController::class, 'byPostcode'])->name('by-postcode');
     });
 
     Route::resources([

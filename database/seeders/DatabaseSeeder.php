@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             StatusesSeeder::class,
             DiseasesSeeder::class,
             AsnafProfilesSeeder::class,
+            PrescriptionsSeeder::class,
         ]);
     }
 }

@@ -146,4 +146,14 @@ class DistrictController extends Controller
             'data' => $districts
         ]);
     }
+
+    public function byState($stateId)
+    {
+        $districts = District::where('state_id', $stateId)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $districts
+        ]);
+    }
 }

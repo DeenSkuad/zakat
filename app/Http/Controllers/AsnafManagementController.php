@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AsnafProfile;
+use App\Models\District;
+use App\Models\State;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class AsnafManagementController extends Controller
 {
@@ -11,6 +16,33 @@ class AsnafManagementController extends Controller
      */
     public function index(Request $request)
     {
+        if ($request->ajax()) {
+            $input = $request->all();
+
+            Paginator::currentPageResolver(function () use ($input) {
+                return ($input['start'] / $input['length'] + 1);
+            });
+
+            $output = User::role(['asnaf'])->with(['asnaf']);
+
+            if (!empty($input['search']['value'])) {
+                $output = $output->where('name', 'LIKE', "%{$input['search']['value']}%")
+                    ->orWhereHas('state', function ($query) use ($input) {
+                        $query->where('name', 'LIKE', "%{$input['search']['value']}%");
+                    });
+            }
+
+            $output = $output->paginate($input['length'])->toArray();
+
+            $response = [
+                "draw" => $input['draw'],
+                "recordsTotal" => intval($output['total']),
+                "recordsFiltered" => intval($output['total']),
+                "data" => $output['data'],
+            ];
+
+            return response()->json($response, 200);
+        }
 
         return view('asnaf-management.index');
     }
@@ -20,7 +52,13 @@ class AsnafManagementController extends Controller
      */
     public function create()
     {
-        return view('asnaf-management.create');
+        $states = State::get();
+        $districts = District::get();
+
+        return view('asnaf-management.create')->with([
+            'states' => $states,
+            'districts' => $districts
+        ]);
     }
 
     /**
@@ -28,7 +66,17 @@ class AsnafManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+
+        ]);
+
+        $userAsnaf = $user->asnaf()->create([
+
+        ]);
+
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     /**

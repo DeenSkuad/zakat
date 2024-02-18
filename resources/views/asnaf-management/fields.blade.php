@@ -11,7 +11,7 @@
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">No. Telefon</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user ? $user->asnaf->phone_no : '' }}"
+        <input type="text" class="form-control" id="phone_no" name="phone_no" value="{{ $user->asnaf->phone_no ?? '' }}"
             required autocomplete="off">
     </div>
     <div class="mb-3">
@@ -21,21 +21,30 @@
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Negeri</label>
-        <select class="form-control">
-            <option selected disabled>Sila pilih negeri</option>
+        <select class="form-control" name="state_id" id="state_id">
+            <option selected disabled>Sila Pilih Negeri</option>
+            @foreach($states as $state)
+                <option value="{{ $state->id }}">{{ $state->name }}</option>
+            @endforeach
         </select>
     </div>
     <div class="mb-3">
-        <label for="name" class="form-label">Daerah</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user->name ?? '' }}" required autocomplete="off">
+        <label for="name" class="form-label">Mukim</label>
+        <select class="form-control" name="district_id" id="district_id">
+            <option selected disabled>Sila Pilih Mukim</option>
+        </select>
     </div>
     <div class="mb-3">
-        <label for="name" class="form-label">Poskod</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user->name ?? '' }}" required autocomplete="off">
+        <label for="name" class="form-label" name="postcode">Poskod</label>
+        <select class="form-control" name="postcode" id="postcode">
+            <option selected disabled>Sila Pilih Poskod</option>
+        </select>
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Kariah Terdekat</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user->name ?? '' }}" required autocomplete="off">
+        <select class="form-control" name="kariah_id" id="kariah_id">
+            <option selected disabled>Sila Pilih Kariah</option>
+        </select>
     </div>
 @endif
 

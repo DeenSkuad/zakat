@@ -100,7 +100,7 @@ class ApplicationController extends Controller
 
         $applicationPrescription = ApplicationPrescription::create([
             'application_id' => $application->id,
-            'disease_id' => $request->prescription_id,
+            'prescription_id' => $request->prescription_id,
         ]);
 
         return response()->json([

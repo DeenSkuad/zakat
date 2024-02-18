@@ -21,9 +21,11 @@
             },
             columns: [
                 { "data" : "name" },
+                { "data" : "ic_no" },
+                { "data" : "status" },
             ],
             columnDefs: [{
-                "targets": 1,
+                "targets": 3,
                 "data": 'id',
                 "render": function(id, type, full, meta) {
                     let editUrl = "{{ route('applications.edit', 'data-id') }}";

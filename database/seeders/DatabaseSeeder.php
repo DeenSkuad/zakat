@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             ZakatTypesSeeder::class,
             StatusesSeeder::class,
             DiseasesSeeder::class,
+            AsnafProfilesSeeder::class,
         ]);
     }
 }

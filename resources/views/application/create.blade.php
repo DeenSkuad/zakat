@@ -74,20 +74,37 @@
                                 </div>
                                 <!--end::Heading-->
                                 <!--begin::Input group-->
-                                <div class="mb-10 fv-row col-md-6">
-                                    <!--begin::Label-->
-                                    <label class="required form-label mb-3">Jenis Bantuan</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
+                                <div class="row">
+                                    <div class="mb-10 fv-row col-md-6">
+                                        <!--begin::Label-->
+                                        <label class="required form-label mb-3">Jenis Bantuan</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
 
-                                    <select class="form-select">
-                                        <option selected disabled>Sila pilih jenis bantuan</option>
-                                        @foreach($services as $service)
-                                        <option value="{{ $service->id }}">{{ $service->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <!--end::Input-->
+                                        <select class="form-select" name="service_id">
+                                            <option selected disabled>Sila pilih jenis bantuan</option>
+                                            @foreach($services as $service)
+                                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="mb-10 fv-row col-md-6">
+                                        <!--begin::Label-->
+                                        <label class="required form-label mb-3">Asnaf</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+
+                                        <select class="form-select" name="user_id">
+                                            <option selected disabled>Sila pilih asnaf</option>
+                                            @foreach($asnafs as $asnaf)
+                                            <option value="{{ $asnaf->id }}">{{ $asnaf->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <!--end::Input-->
+                                    </div>
                                 </div>
+
                                 <!--end::Input group-->
 
                             </div>

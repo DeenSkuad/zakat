@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -44,9 +45,11 @@ class ApplicationController extends Controller
     public function create()
     {
         $services = Service::get();
+        $asnafs = User::role('Asnaf')->get();
 
         return view('application.create')->with([
             'services' => $services,
+            'asnafs' => $asnafs,
         ]);
     }
 
@@ -55,7 +58,16 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        $user = User::find($request->user_id);
+        $input['asnaf_profile_id'] = $user->asnaf->id;
+
+        Application::create($input);
+
+        return response()->json([
+            'success' => true,
+        ]);
     }
 
     /**

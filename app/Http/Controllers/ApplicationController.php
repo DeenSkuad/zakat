@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use App\Models\ApplicationAttachment;
+use App\Models\Disease;
 use App\Models\ApplicationDisease;
 use App\Models\ApplicationPrescription;
 use App\Models\Kariah;
+use App\Models\Prescription;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -52,6 +54,8 @@ class ApplicationController extends Controller
     public function create()
     {
         $services = Service::get();
+        $diseases = Disease::get();
+        $prescriptions = Prescription::get();
         $kariahs = Kariah::get();
         $asnafs = User::role('Asnaf')->get();
 
@@ -59,6 +63,8 @@ class ApplicationController extends Controller
             'services' => $services,
             'asnafs' => $asnafs,
             'kariahs' => $kariahs,
+            'diseases' => $diseases,
+            'prescriptions' => $prescriptions,
         ]);
     }
 

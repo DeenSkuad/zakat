@@ -100,7 +100,7 @@ class ApplicationController extends Controller
 
         $applicationPrescription = ApplicationPrescription::create([
             'application_id' => $application->id,
-            'disease_id' => $request->prescription_id,
+            'prescription_id' => $request->prescription_id,
         ]);
 
         return response()->json([
@@ -122,7 +122,21 @@ class ApplicationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $services = Service::get();
+        $diseases = Disease::get();
+        $prescriptions = Prescription::get();
+        $kariahs = Kariah::get();
+        $asnafs = User::role('Asnaf')->get();
+        $application = Application::find($id);
+
+        return view('application.edit')->with([
+            'services' => $services,
+            'asnafs' => $asnafs,
+            'kariahs' => $kariahs,
+            'diseases' => $diseases,
+            'prescriptions' => $prescriptions,
+            'application' => $application
+        ]);
     }
 
     /**

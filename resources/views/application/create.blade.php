@@ -121,49 +121,59 @@
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Nama Pesakit</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="name" id="name" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">No. Kad Pengenalan</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="ic_no" id="ic_no" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Jenis Penyakit (Diagnosis)</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <select class="form-select" name="disease_id" id="disease_id">
+                                            <option selected disabled>Sila pilih jenis penyakit</option>
+                                            @foreach($diseases as $disease)
+                                            <option value="{{ $disease->id }}">{{ $disease->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Latar Belakang Penyakit & Rawatan</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="disease_background" id="disease_background" placeholder="" value="" autocomplete="off" />
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Preskripsi Ubat</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <select class="form-select" name="prescription_id" id="prescription_id">
+                                            <option selected disabled>Sila pilih jenis ubat</option>
+                                            @foreach($prescriptions as $prescription)
+                                            <option value="{{ $prescription->id }}">{{ $prescription->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Tempoh Rawatan</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="treatment_period" id="treatment_period" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Alat Perubatan / Perubatan Diperlukan</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="medical_tool" id="medical_tool" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-3">
                                         <label class="required form-label mb-3">Kos Rawatan Berdasarkan Penyakit</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="medical_cost" id="medical_cost" placeholder="" value="" autocomplete="off" />
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Kekerapan Menilai Semula</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="frequency" id="frequency" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Lain - lain Komen</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="comments" id="comments" placeholder="" value="" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -174,7 +184,7 @@
                                     </div>
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Penyakit ini (akan/tidak akan) menyebabkan pesakit ini tidak berupaya menanggung diri sendiri</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="self_support" id="self_support" placeholder="" value="" autocomplete="off" />
                                     </div>
                                 </div>
                                 <!--begin::Input group-->
@@ -201,185 +211,7 @@
                                     <!--end::Dropzone-->
                                 </div>
                                 <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="mb-10 d-none">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Uploaded File</label>
-                                    <!--End::Label-->
-                                    <!--begin::Files-->
-                                    <div class="mh-300px scroll-y me-n7 pe-7">
-                                        <!--begin::File-->
-                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Avatar-->
-                                                <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/pdf.svg" alt="icon" />
-                                                </div>
-                                                <!--end::Avatar-->
-                                                <!--begin::Details-->
-                                                <div class="ms-6">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Product
-                                                        Specifications</a>
-                                                    <div class="fw-semibold text-muted">230kb</div>
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--begin::Menu-->
-                                            <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-                                                    <option></option>
-                                                    <option value="1">Remove</option>
-                                                    <option value="2">Modify</option>
-                                                    <option value="3">Select</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::File-->
-                                        <!--begin::File-->
-                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Avatar-->
-                                                <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/tif.svg" alt="icon" />
-                                                </div>
-                                                <!--end::Avatar-->
-                                                <!--begin::Details-->
-                                                <div class="ms-6">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
-                                                        Creative Poster</a>
-                                                    <div class="fw-semibold text-muted">2.4mb</div>
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--begin::Menu-->
-                                            <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-                                                    <option></option>
-                                                    <option value="1">Remove</option>
-                                                    <option value="2">Modify</option>
-                                                    <option value="3">Select</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::File-->
-                                        <!--begin::File-->
-                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Avatar-->
-                                                <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/folder-document.svg" alt="icon" />
-                                                </div>
-                                                <!--end::Avatar-->
-                                                <!--begin::Details-->
-                                                <div class="ms-6">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
-                                                        Landing Page Source</a>
-                                                    <div class="fw-semibold text-muted">1.12mb</div>
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--begin::Menu-->
-                                            <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-                                                    <option></option>
-                                                    <option value="1">Remove</option>
-                                                    <option value="2">Modify</option>
-                                                    <option value="3">Select</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::File-->
-                                        <!--begin::File-->
-                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Avatar-->
-                                                <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/css.svg" alt="icon" />
-                                                </div>
-                                                <!--end::Avatar-->
-                                                <!--begin::Details-->
-                                                <div class="ms-6">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Landing
-                                                        Page Styling</a>
-                                                    <div class="fw-semibold text-muted">85kb</div>
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--begin::Menu-->
-                                            <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-                                                    <option></option>
-                                                    <option value="1">Remove</option>
-                                                    <option value="2">Modify</option>
-                                                    <option value="3">Select</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::File-->
-                                        <!--begin::File-->
-                                        <div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Avatar-->
-                                                <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/ai.svg" alt="icon" />
-                                                </div>
-                                                <!--end::Avatar-->
-                                                <!--begin::Details-->
-                                                <div class="ms-6">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Design
-                                                        Source Files</a>
-                                                    <div class="fw-semibold text-muted">48mb</div>
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--begin::Menu-->
-                                            <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-                                                    <option></option>
-                                                    <option value="1">Remove</option>
-                                                    <option value="2">Modify</option>
-                                                    <option value="3">Select</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::File-->
-                                        <!--begin::File-->
-                                        <div class="d-flex flex-stack py-4">
-                                            <div class="d-flex align-items-center">
-                                                <!--begin::Avatar-->
-                                                <div class="symbol symbol-35px">
-                                                    <img src="assets/media/svg/files/doc.svg" alt="icon" />
-                                                </div>
-                                                <!--end::Avatar-->
-                                                <!--begin::Details-->
-                                                <div class="ms-6">
-                                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign
-                                                        Plan Document</a>
-                                                    <div class="fw-semibold text-muted">27kb</div>
-                                                </div>
-                                                <!--end::Details-->
-                                            </div>
-                                            <!--begin::Menu-->
-                                            <div class="min-w-100px">
-                                                <select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-                                                    <option></option>
-                                                    <option value="1">Remove</option>
-                                                    <option value="2">Modify</option>
-                                                    <option value="3">Select</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Menu-->
-                                        </div>
-                                        <!--end::File-->
-                                    </div>
-                                    <!--end::Files-->
-                                </div>
-                                <!--end::Input group-->
+                                
 
                             </div>
                             <!--end::Wrapper-->
@@ -405,15 +237,11 @@
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-4">
                                         <label class="required form-label mb-3">Nama Penuh Waris</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="heir_name" id="heir_name" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-4">
                                         <label class="required form-label mb-3">No. Kad Pengenalan Waris</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="" placeholder="" value="" autocomplete="off" />
-                                    </div>
-                                    <div class="mb-10 fv-row col-md-4">
-                                        <label class="required form-label mb-3">Tarikh Permohonan</label>
-                                        <input type="text" class="form-control form-control-lg form-control-solid" name="" placeholder="" value="" autocomplete="off" />
+                                        <input type="text" class="form-control form-control-lg form-control-solid" name="her_ic_no" id="her_ic_no" placeholder="" value="" autocomplete="off" />
                                     </div>
                                 </div>
                                 <!--end::Input group-->

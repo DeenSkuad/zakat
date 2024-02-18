@@ -170,7 +170,7 @@
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Dokumen Sokongan / Laporan Perubatan</label>
-                                        <input type="file" class="form-control form-control-lg form-control-solid" name="support_document" id="support_document" placeholder="" value="" autocomplete="off" />
+                                        <input type="file" class="form-control form-control-lg form-control-solid" name="attachment" id="attachment" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Penyakit ini (akan/tidak akan) menyebabkan pesakit ini tidak berupaya menanggung diri sendiri</label>

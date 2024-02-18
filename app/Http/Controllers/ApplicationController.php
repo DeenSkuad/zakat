@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\ApplicationAttachment;
 use App\Models\Kariah;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class ApplicationController extends Controller
 {
@@ -68,8 +70,20 @@ class ApplicationController extends Controller
         $user = User::find($request->user_id);
         $input['asnaf_profile_id'] = $user->asnaf->id;
 
+        $application = Application::create($input);
 
-        Application::create($input);
+        $uuid = Uuid::uuid4();
+        if (!empty($request->attachment)) {
+            $attachment = $request->file('attachment');
+
+            $uuid = Uuid::uuid4();
+            $filePath = $attachment->store($uuid, 'application-attachments');
+
+            ApplicationAttachment::create([
+                'application_id' => $application->id,
+                'file' => $filePath,
+            ]);
+        }
 
         return response()->json([
             'success' => true,

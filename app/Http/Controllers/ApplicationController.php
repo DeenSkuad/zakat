@@ -60,6 +60,8 @@ class ApplicationController extends Controller
     {
         $input = $request->all();
 
+        dd($input);
+
         $user = User::find($request->user_id);
         $input['asnaf_profile_id'] = $user->asnaf->id;
 

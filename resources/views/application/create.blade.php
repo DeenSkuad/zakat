@@ -39,12 +39,6 @@
                             <h3 class="stepper-title">Kebenaran Pesakit / Waris</h3>
                         </div>
                         <!--end::Step 3-->
-
-                        <!--begin::Step 4-->
-                        <div class="stepper-item d-none" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Completed</h3>
-                        </div>
-                        <!--end::Step 4-->
                     </div>
                     <!--end::Nav-->
                     <!--begin::Form-->
@@ -81,7 +75,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
 
-                                        <select class="form-select" name="service_id">
+                                        <select class="form-select" name="service_id" id="service_id">
                                             <option selected disabled>Sila pilih jenis bantuan</option>
                                             @foreach($services as $service)
                                             <option value="{{ $service->id }}">{{ $service->name }}</option>
@@ -95,7 +89,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
 
-                                        <select class="form-select" name="user_id">
+                                        <select class="form-select" name="user_id" id="user_id">
                                             <option selected disabled>Sila pilih asnaf</option>
                                             @foreach($asnafs as $asnaf)
                                             <option value="{{ $asnaf->id }}">{{ $asnaf->name }}</option>
@@ -186,7 +180,7 @@
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Dokumen Sokongan / Laporan Perubatan</label>
-                                        <input type="file" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" autocomplete="off" />
+                                        <input type="file" class="form-control form-control-lg form-control-solid" name="support_document" id="support_document" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Penyakit ini (akan/tidak akan) menyebabkan pesakit ini tidak berupaya menanggung diri sendiri</label>
@@ -439,23 +433,6 @@
                         </div>
                         <!--end::Step 3-->
 
-                        <!--begin::Step 4-->
-                        <div data-kt-stepper-element="content" class="">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="pb-12 text-center">
-                                    <!--begin::Title-->
-                                    <h1 class="fw-bold text-gray-900">Permohonan Asnaf Telah Berjaya Dihantar</h1>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="fw-semibold text-muted fs-4">Permohonan asnaf sudah dihantar untuk diproses.</div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
-                            </div>
-                        </div>
-                        <!--end::Step 4-->
                         <!--begin::Actions-->
                         <div class="d-flex flex-stack pt-10">
                             <!--begin::Wrapper-->
@@ -469,8 +446,8 @@
                             <!--end::Wrapper-->
                             <!--begin::Wrapper-->
                             <div>
-                                <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
-                                    <span class="indicator-label">Submit
+                                <button type="button" data-action="{{ route('applications.store') }}" onClick="btnCreate(this)" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
+                                    <span class="indicator-label">Simpan
                                         <i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
                                             <span class="path1"></span>
                                             <span class="path2"></span>

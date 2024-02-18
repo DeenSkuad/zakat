@@ -98,8 +98,6 @@
                             $(baseAjaxModalContent).modal("hide");
                             datatable.DataTable().ajax.reload();
                         }
-
-                        callback(response, false);
                     },
                     fail: (response) => {
                         callback(response, false);
@@ -126,8 +124,6 @@
                             $(baseAjaxModalContent).modal("hide");
                             datatable.DataTable().ajax.reload();
                         }
-
-                        callback(response, false);
                     },
                     fail: (response) => {
                         callback(response, false);

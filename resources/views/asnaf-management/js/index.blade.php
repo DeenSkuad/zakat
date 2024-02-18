@@ -24,7 +24,7 @@
                 { "data" : "ic_no" },
                 { "data" : "email" },
                 { "data" : "asnaf.phone_no" },
-                { "data" : "kariah.name" },
+                { "data" : "asnaf.kariah.name" },
             ],
             columnDefs: [{
                 "targets": 5,

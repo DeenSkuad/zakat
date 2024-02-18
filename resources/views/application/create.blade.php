@@ -447,7 +447,7 @@
                                     <i class="ki-duotone ki-arrow-left fs-3 me-1">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
-                                    </i>Back</button>
+                                    </i>Kembali</button>
                             </div>
                             <!--end::Wrapper-->
                             <!--begin::Wrapper-->

@@ -23,8 +23,6 @@ class ApplicationController extends Controller
                 'status',
             ]);
 
-            
-
             $output = $output->paginate($input['length'])->toArray();
 
             $response = [

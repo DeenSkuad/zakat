@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AsnafProfile extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     public $table = 'asnaf_profiles';
 

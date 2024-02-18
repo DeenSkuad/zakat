@@ -1,4 +1,4 @@
-@if ($action == 'create')
+@if ($action == 'create' || $action == 'edit')
     <div class="mb-3">
         <label for="name" class="form-label">No. Kad Pengenalan</label>
         <input type="text" class="form-control" id="ic_no" name="ic_no" value="{{ $user->ic_no ?? '' }}"
@@ -19,6 +19,9 @@
         <input type="text" class="form-control" id="email" name="email" value="{{ $user->email ?? '' }}"
             required autocomplete="off">
     </div>
+@endif
+
+@if ($action == 'create')
     <div class="mb-3">
         <label for="name" class="form-label">Negeri</label>
         <select class="form-control" name="state_id" id="state_id">
@@ -28,6 +31,23 @@
             @endforeach
         </select>
     </div>
+@elseif($action == 'edit')
+    <div class="mb-3">
+        <label for="name" class="form-label">Negeri</label>
+        <select class="form-control" name="state_id" id="state_id">
+            <option selected disabled>Sila Pilih Negeri</option>
+            @foreach($states as $state)
+                @if($user->asnaf->state_id == $state->id)
+                    <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
+                @else
+                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                @endif
+            @endforeach
+        </select>
+    </div>
+@endif
+
+@if ($action == 'create' || $action == 'edit')
     <div class="mb-3">
         <label for="name" class="form-label">Mukim</label>
         <select class="form-control" name="district_id" id="district_id">

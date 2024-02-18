@@ -14,7 +14,7 @@
                 $('#district_id').append(
                     '<option value="">Sila Pilih Mukim</option>');
                 $.each(response.data, function(key, value) {
-                    if(districtId == value.id) {
+                    if("{{ $user->asnaf->district_id }}" == value.id) {
                         $('#district_id').append('<option value="' + value.id + '" selected>' + value.name + '</option>');
                     } else {
                         $('#district_id').append('<option value="' + value.id + '">' + value.name + '</option>');
@@ -24,7 +24,7 @@
         });
 
         var url = "{{ route('kariahs.by-district', 'data-id') }}";
-        url = url.replace('data-id', districtId)
+        url = url.replace('data-id', "{{ $user->asnaf->district_id }}")
 
         $.ajax({
             url: url,
@@ -35,7 +35,7 @@
                 $('#postcode').append(
                     '<option value="">Sila Pilih Poskod</option>');
                 $.each(response.data, function(key, value) {
-                    if(districtId == value.id) {
+                    if("{{ $user->asnaf->district_id }}" == value.id) {
                         $('#postcode').append('<option value="' + value.id + '" selected>' + value.name + ' | ' + value.postcode + '</option>');
                     } else {
                         $('#postcode').append('<option value="' + value.id + '">' + value.name + ' | ' + value.postcode + '</option>');
@@ -45,11 +45,8 @@
             }
         });
 
-
-        var districtId = $("#district_id").val();
         var url = "{{ route('kariahs.by-district', 'data-id') }}";
-        url = url.replace('data-id', districtId)
-        var asnafKariahId = "{{ $user->asnaf->kariah_id }}";
+        url = url.replace('data-id', "{{ $user->asnaf->district_id }}")
 
         $.ajax({
             url: url,
@@ -60,7 +57,7 @@
                 $('#kariah_id').append(
                     '<option value="">Sila Pilih Kariah</option>');
                 $.each(response.data, function(key, value) {
-                    if(asnafKariahId == value.id) {
+                    if("{{ $user->asnaf->kariah_id }}" == value.id) {
                         $('#kariah_id').append('<option value="' + value.id + '" selected>' + value.name + '</option>');
                     } else {
                         $('#kariah_id').append('<option value="' + value.id + '">' + value.name + '</option>');

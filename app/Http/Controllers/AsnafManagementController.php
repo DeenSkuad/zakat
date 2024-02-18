@@ -80,6 +80,7 @@ class AsnafManagementController extends Controller
             'phone_no' => $request->phone_no,
             'state_id' => $request->state_id,
             'district_id' => $request->district_id,
+            'postcode' => $request->postcode,
         ]);
 
         return response()->json([
@@ -109,10 +110,12 @@ class AsnafManagementController extends Controller
     public function edit(string $id)
     {
         $user = User::with(['asnaf', 'asnaf.kariah'])->find($id);
+        $states = State::get();
 
         return view('asnaf-management.edit')->with([
             'success' => true,
-            'user' => $user
+            'user' => $user,
+            'states' => $states
         ]);
     }
 
@@ -123,7 +126,7 @@ class AsnafManagementController extends Controller
     {
         $user = User::find($id);
 
-        $user = $user->update([
+        $user->update([
             'ic_no' => $request->ic_no,
             'name' => $request->name,
             'email' => $request->email
@@ -136,7 +139,7 @@ class AsnafManagementController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Data berjaya ditambah!'
+            'message' => 'Data berjaya dikemaskini!'
         ]);
     }
 
@@ -147,15 +150,12 @@ class AsnafManagementController extends Controller
     {
         $user = User::find($id);
 
-        $user->asnaf()->update([
-            'deleted_by' => auth()->user()->id
-        ]);
-
         $user->asnaf()->delete();
         $user->delete();
 
         return response()->json([
-            'success' => true
+            'success' => true,
+            'message' => 'Data berjaya dihapuskan!'
         ]);
     }
 }

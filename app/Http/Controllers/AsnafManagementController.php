@@ -9,9 +9,8 @@ class AsnafManagementController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        
 
         return view('asnaf-management.index');
     }

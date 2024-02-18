@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('treatment_period')->nullable();
             $table->string('medical_cost')->nullable();
             $table->string('frequency')->nullable();
+            $table->string('medical_tool')->nullable();
             $table->string('self_support')->nullable();
             $table->string('comments')->nullable();
             $table->auditable();

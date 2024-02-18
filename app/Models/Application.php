@@ -24,6 +24,7 @@ class Application extends Model
         'frequency',
         'self_support',
         'comments',
+        'medical_tool',
         'status',
         'remarks',
         'deleted_at',

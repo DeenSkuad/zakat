@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn bg-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn bg-primary" data-action="{{ route('cities.store') }}" onClick="btnCreate(this)">Simpan</button>
+                    <button type="button" class="btn bg-primary" data-action="{{ route('asnaf-managements.store') }}" onClick="btnCreate(this)">Simpan</button>
                 </div>
             </div>
         </form>

@@ -23,7 +23,7 @@ class AsnafManagementController extends Controller
                 return ($input['start'] / $input['length'] + 1);
             });
 
-            $output = User::role(['Asnaf'])->with(['asnaf']);
+            $output = User::role(['Asnaf'])->with(['asnaf', 'asnaf.kariah']);
 
             if (!empty($input['search']['value'])) {
                 $output = $output->where('name', 'LIKE', "%{$input['search']['value']}%")
@@ -67,15 +67,22 @@ class AsnafManagementController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-
+            'ic_no' => $request->ic_no,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt('asdasd')
         ]);
 
-        $userAsnaf = $user->asnaf()->create([
+        $user->assignRole('Asnaf');
 
+        $userAsnaf = $user->asnaf()->create([
+            'kariah_id' => $request->kariah_id,
+            'phone_no' => $request->phone_no
         ]);
 
         return response()->json([
-            'success' => true
+            'success' => true,
+            'message' => 'Data berjaya ditambah!'
         ]);
     }
 

@@ -19,10 +19,11 @@
                                 id="userDatatable">
                                 <thead class="thead-light">
                                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                        <th width="30%">Nama</th>
-                                        <th width="20%">Mukim</th>
-                                        <th width="30%">Alamat</th>
-                                        <th width="10%">Poskod</th>
+                                        <th>Nama</th>
+                                        <th>No. K/P</th>
+                                        <th>Emel</th>
+                                        <th>No. Telefon</th>
+                                        <th>Kariah</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>

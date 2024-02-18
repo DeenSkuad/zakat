@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Application;
 use App\Models\ApplicationAttachment;
 use App\Models\Disease;
+use App\Models\ApplicationDisease;
+use App\Models\ApplicationPrescription;
 use App\Models\Kariah;
 use App\Models\Prescription;
 use App\Models\Service;
@@ -90,6 +92,16 @@ class ApplicationController extends Controller
                 'file' => $filePath,
             ]);
         }
+
+        $applicationDisease = ApplicationDisease::create([
+            'application_id' => $application->id,
+            'disease_id' => $request->disease_id,
+        ]);
+
+        $applicationPrescription = ApplicationPrescription::create([
+            'application_id' => $application->id,
+            'disease_id' => $request->prescription_id,
+        ]);
 
         return response()->json([
             'success' => true,

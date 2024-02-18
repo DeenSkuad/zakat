@@ -23,7 +23,7 @@ class AsnafManagementController extends Controller
                 return ($input['start'] / $input['length'] + 1);
             });
 
-            $output = User::role(['asnaf'])->with(['asnaf']);
+            $output = User::role(['Asnaf'])->with(['asnaf']);
 
             if (!empty($input['search']['value'])) {
                 $output = $output->where('name', 'LIKE', "%{$input['search']['value']}%")

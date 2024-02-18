@@ -21,12 +21,13 @@
             },
             columns: [
                 { "data" : "name" },
-                { "data" : "district.name" },
-                { "data" : "address" },
-                { "data" : "postcode" },
+                { "data" : "ic_no" },
+                { "data" : "email" },
+                { "data" : "asnaf.phone_no" },
+                { "data" : "kariah.name" },
             ],
             columnDefs: [{
-                "targets": 4,
+                "targets": 5,
                 "data": 'id',
                 "render": function(id, type, full, meta) {
                     let showUrl = "{{ route('asnaf-managements.show', 'data-id') }}";

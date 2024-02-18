@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('medical_tool')->nullable();
             $table->string('self_support')->nullable();
             $table->string('comments')->nullable();
+            $table->string('heir_name')->nullable();
+            $table->string('her_ic_no')->nullable();
             $table->auditable();
 
             $table->foreign('asnaf_profile_id')->references('id')->on('asnaf_profiles');

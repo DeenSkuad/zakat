@@ -25,6 +25,8 @@ class Application extends Model
         'self_support',
         'comments',
         'medical_tool',
+        'heir_name',
+        'her_ic_no',
         'status',
         'remarks',
         'deleted_at',

@@ -16,13 +16,14 @@
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Alamat Emel</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user->name ?? '' }}"
+        <input type="text" class="form-control" id="email" name="email" value="{{ $user->email ?? '' }}"
             required autocomplete="off">
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Negeri</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{ $user->name ?? '' }}"
-            required autocomplete="off">
+        <select class="form-control">
+            <option selected disabled>Sila pilih negeri</option>
+        </select>
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Daerah</label>

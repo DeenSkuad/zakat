@@ -59,50 +59,40 @@
                                             </i>
                                         </span>
                                     </h2>
-                                    <!--end::Title-->
-                                    <!--begin::Notice-->
                                     <div class="text-muted fw-semibold fs-6">
                                         Kategori asnaf fakir
                                     </div>
-                                    <!--end::Notice-->
                                 </div>
-                                <!--end::Heading-->
-                                <!--begin::Input group-->
                                 <div class="row">
-                                    <div class="mb-10 fv-row col-md-6">
-                                        <!--begin::Label-->
+                                    <div class="mb-10 fv-row col-md-4">
                                         <label class="required form-label mb-3">Jenis Bantuan</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-
                                         <select class="form-select" name="service_id" id="service_id">
                                             <option selected disabled>Sila pilih jenis bantuan</option>
                                             @foreach($services as $service)
                                             <option value="{{ $service->id }}">{{ $service->name }}</option>
                                             @endforeach
                                         </select>
-                                        <!--end::Input-->
                                     </div>
-                                    <div class="mb-10 fv-row col-md-6">
-                                        <!--begin::Label-->
+                                    <div class="mb-10 fv-row col-md-4">
                                         <label class="required form-label mb-3">Asnaf</label>
-                                        <!--end::Label-->
-                                        <!--begin::Input-->
-
                                         <select class="form-select" name="user_id" id="user_id">
                                             <option selected disabled>Sila pilih asnaf</option>
                                             @foreach($asnafs as $asnaf)
                                             <option value="{{ $asnaf->id }}">{{ $asnaf->name }}</option>
                                             @endforeach
                                         </select>
-                                        <!--end::Input-->
+                                    </div>
+                                    <div class="mb-10 fv-row col-md-4">
+                                        <label class="required form-label mb-3">Kariah</label>
+                                        <select class="form-select" name="kariah_id" id="kariah_id">
+                                            <option selected disabled>Sila pilih kariah</option>
+                                            @foreach($kariahs as $kariah)
+                                            <option value="{{ $kariah->id }}">{{ $kariah->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-
-                                <!--end::Input group-->
-
                             </div>
-                            <!--end::Wrapper-->
                         </div>
                         <!--end::Step 1-->
                         <!--begin::Step 2-->

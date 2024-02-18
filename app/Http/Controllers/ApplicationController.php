@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\Kariah;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -45,11 +46,13 @@ class ApplicationController extends Controller
     public function create()
     {
         $services = Service::get();
+        $kariahs = Kariah::get();
         $asnafs = User::role('Asnaf')->get();
 
         return view('application.create')->with([
             'services' => $services,
             'asnafs' => $asnafs,
+            'kariahs' => $kariahs,
         ]);
     }
 

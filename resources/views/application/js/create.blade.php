@@ -21,6 +21,7 @@
         confirmCreate(elem).then((result) => {
             let formData = new FormData();
             formData.append('service_id', $("#service_id").val());
+            formData.append('kariah_id', $("#kariah_id").val());
             formData.append('user_id', $("#user_id").val());
             formData.append('support_document', $("#support_document")[0].files[0]);
 

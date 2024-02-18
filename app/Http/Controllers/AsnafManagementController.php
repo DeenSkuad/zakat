@@ -77,7 +77,9 @@ class AsnafManagementController extends Controller
 
         $userAsnaf = $user->asnaf()->create([
             'kariah_id' => $request->kariah_id,
-            'phone_no' => $request->phone_no
+            'phone_no' => $request->phone_no,
+            'state_id' => $request->state_id,
+            'district_id' => $request->district_id,
         ]);
 
         return response()->json([
@@ -91,7 +93,14 @@ class AsnafManagementController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::with(['asnaf', 'asnaf.kariah'])->find($id);
+        $states = State::get();
+
+        return view('asnaf-management.show')->with([
+            'success' => true,
+            'user' => $user,
+            'states' => $states
+        ]);
     }
 
     /**
@@ -99,7 +108,12 @@ class AsnafManagementController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::with(['asnaf', 'asnaf.kariah'])->find($id);
+
+        return view('asnaf-management.edit')->with([
+            'success' => true,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -107,7 +121,23 @@ class AsnafManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+
+        $user = $user->update([
+            'ic_no' => $request->ic_no,
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+
+        $userAsnaf = $user->asnaf()->update([
+            'kariah_id' => $request->kariah_id,
+            'phone_no' => $request->phone_no
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berjaya ditambah!'
+        ]);
     }
 
     /**
@@ -115,6 +145,17 @@ class AsnafManagementController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->asnaf()->update([
+            'deleted_by' => auth()->user()->id
+        ]);
+
+        $user->asnaf()->delete();
+        $user->delete();
+
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

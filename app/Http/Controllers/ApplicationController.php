@@ -138,6 +138,12 @@ class ApplicationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $application = Application::find($id);
+
+        $application->delete();
+
+        return response()->json([
+            'success' => true,
+        ]);
     }
 }

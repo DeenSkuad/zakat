@@ -17,7 +17,6 @@ class Application extends Model
         'service_id',
         'name',
         'ic_no',
-        'disease_id',
         'disease_background',
         'treatment_period',
         'medical_cost',

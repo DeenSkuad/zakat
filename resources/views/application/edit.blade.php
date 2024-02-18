@@ -67,10 +67,14 @@
                                     <div class="mb-10 fv-row col-md-4">
                                         <label class="required form-label mb-3">Jenis Bantuan</label>
                                         <select class="form-select" name="service_id" id="service_id">
-                                            <option selected disabled>Sila pilih jenis bantuan</option>
-                                            <!-- @foreach($services as $service)
-                                            <option value="{{ $service->id }}">{{ $service->name ?? '' }}</option>
-                                            @endforeach -->
+                                            <option selected disabled>Sila pilih bantuan</option>
+                                            @foreach($services as $service)
+                                                @if($service->id == $service->id)
+                                                    <option value="{{ $service->id }}" selected>{{ $service->name }}</option>
+                                                @else
+                                                    <option value="{{ $service->id }}">{{ $service->name }}</option>
+                                            @endif
+                                            @endforeach
                                         </select>
                                         
                                     </div>
@@ -79,7 +83,11 @@
                                         <select class="form-select" name="user_id" id="user_id">
                                             <option selected disabled>Sila pilih asnaf</option>
                                             @foreach($asnafs as $asnaf)
-                                            <option value="{{ $asnaf->id }}">{{ $asnaf->name }}</option>
+                                                @if($asnaf->id == $asnaf->id)
+                                                    <option value="{{ $asnaf->id }}" selected>{{ $asnaf->name }}</option>
+                                                @else
+                                                    <option value="{{ $asnaf->id }}">{{ $asnaf->name }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -88,7 +96,11 @@
                                         <select class="form-select" name="kariah_id" id="kariah_id">
                                             <option selected disabled>Sila pilih kariah</option>
                                             @foreach($kariahs as $kariah)
-                                            <option value="{{ $kariah->id }}">{{ $kariah->name }}</option>
+                                                @if($kariah->id == $kariah->id)
+                                                    <option value="{{ $kariah->id }}" selected>{{ $kariah->name }}</option>
+                                                @else
+                                                    <option value="{{ $kariah->id }}">{{ $kariah->name }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -133,7 +145,11 @@
                                         <select class="form-select" name="disease_id" id="disease_id">
                                             <option selected disabled>Sila pilih jenis penyakit</option>
                                             @foreach($diseases as $disease)
-                                            <option value="{{ $disease->id }}">{{ $disease->name }}</option>
+                                                @if($disease->id == $disease->id)
+                                                    <option value="{{ $disease->id }}" selected>{{ $disease->name }}</option>
+                                                @else
+                                                    <option value="{{ $disease->id }}">{{ $disease->name }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -149,7 +165,11 @@
                                         <select class="form-select" name="prescription_id" id="prescription_id">
                                             <option selected disabled>Sila pilih jenis ubat</option>
                                             @foreach($prescriptions as $prescription)
-                                            <option value="{{ $prescription->id }}">{{ $prescription->name }}</option>
+                                                @if($prescription->id == $prescription->id)
+                                                    <option value="{{ $prescription->id }}" selected>{{ $prescription->name }}</option>
+                                                @else
+                                                    <option value="{{ $prescription->id }}">{{ $prescription->name }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>
@@ -240,7 +260,7 @@
                             <!--end::Wrapper-->
                             <!--begin::Wrapper-->
                             <div>
-                                <button type="button" data-action="{{ route('applications.store') }}" onClick="btnCreate(this)" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
+                                <button type="button" data-action="{{ route('applications.store') }}" onClick="btnUpdate(this)" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
                                     <span class="indicator-label">Simpan
                                         <i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
                                             <span class="path1"></span>

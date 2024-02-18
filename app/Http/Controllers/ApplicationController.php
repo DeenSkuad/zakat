@@ -144,7 +144,40 @@ class ApplicationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $input = $request->all();
+
+        $user = User::find($request->user_id);
+        $input['asnaf_profile_id'] = $user->asnaf->id;
+
+        $application = Application::create($input);
+
+        $uuid = Uuid::uuid4();
+        if (!empty($request->attachment)) {
+            $attachment = $request->file('attachment');
+
+            $uuid = Uuid::uuid4();
+            $filePath = $attachment->store($uuid, 'application-attachments');
+
+            ApplicationAttachment::create([
+                'application_id' => $application->id,
+                'file' => $filePath,
+            ]);
+        }
+
+        $applicationDisease = ApplicationDisease::create([
+            'application_id' => $application->id,
+            'disease_id' => $request->disease_id,
+        ]);
+
+        $applicationPrescription = ApplicationPrescription::create([
+            'application_id' => $application->id,
+            'prescription_id' => $request->prescription_id,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data berjaya ditambah!'
+        ]);
     }
 
     /**

@@ -149,7 +149,9 @@ class ApplicationController extends Controller
         $user = User::find($request->user_id);
         $input['asnaf_profile_id'] = $user->asnaf->id;
 
-        $application = Application::create($input);
+        $application = Application::find($id);
+
+        $application->update($input);
 
         $uuid = Uuid::uuid4();
         if (!empty($request->attachment)) {
@@ -158,19 +160,21 @@ class ApplicationController extends Controller
             $uuid = Uuid::uuid4();
             $filePath = $attachment->store($uuid, 'application-attachments');
 
+            $application->attachments()->delete();
+
             ApplicationAttachment::create([
                 'application_id' => $application->id,
                 'file' => $filePath,
             ]);
         }
 
-        $applicationDisease = ApplicationDisease::create([
-            'application_id' => $application->id,
+        $applicationDisease = ApplicationDisease::where('application_id', $application->id)->first();
+        $applicationDisease->update([
             'disease_id' => $request->disease_id,
         ]);
 
-        $applicationPrescription = ApplicationPrescription::create([
-            'application_id' => $application->id,
+        $applicationPrescription = ApplicationPrescription::where('application_id', $application->id)->first();
+        $applicationPrescription->update([
             'prescription_id' => $request->prescription_id,
         ]);
 

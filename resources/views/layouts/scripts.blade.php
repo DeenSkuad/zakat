@@ -94,10 +94,14 @@
                     processData: false,
                     type: 'POST',
                     success: function(response) {
-                        if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: response.message,
+                            showConfirmButton: true,
+                        }).then(() => {
                             $(baseAjaxModalContent).modal("hide");
                             datatable.DataTable().ajax.reload();
-                        }
+                        });
                     },
                     fail: (response) => {
                         callback(response, false);
@@ -120,10 +124,14 @@
                     processData: false,
                     type: 'POST',
                     success: function(response) {
-                        if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: response.message,
+                            showConfirmButton: true,
+                        }).then(() => {
                             $(baseAjaxModalContent).modal("hide");
                             datatable.DataTable().ajax.reload();
-                        }
+                        });
                     },
                     fail: (response) => {
                         callback(response, false);

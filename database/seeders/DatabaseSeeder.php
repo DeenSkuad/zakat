@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             AdultsSeeder::class,
             ZakatTypesSeeder::class,
             StatusesSeeder::class,
+            DiseasesSeeder::class,
         ]);
     }
 }

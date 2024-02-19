@@ -58,6 +58,13 @@ class UsersSeeder extends Seeder
                 'email_verified_at' => Carbon::now(),
                 'password' => bcrypt('asdasd')
             ],
+            [
+                'ic_no' => '77777',
+                'name' => 'Ahmad Penyewa',
+                'email' => 'penyewa@test.com',
+                'email_verified_at' => Carbon::now(),
+                'password' => bcrypt('asdasd')
+            ],
         ];
 
 
@@ -71,6 +78,7 @@ class UsersSeeder extends Seeder
         $users[3]->assignRole('PembantuAmil');
         $users[4]->assignRole('Asnaf');
         $users[5]->assignRole('PembayarZakat');
+        $users[6]->assignRole('Penyewa');
 
         DB::table('amil_profiles')->insert([
             ['user_id' => 3, 'amil_no' => 12345, 'type' => 'organization', 'phone_no' => '+60176336312', 'district_id' => 1, 'kariah_id' => 1]

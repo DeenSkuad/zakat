@@ -21,6 +21,7 @@ use App\Http\Controllers\Api\PaymentAPIController;
 use App\Http\Controllers\Api\SchoolAPIController;
 use App\Http\Controllers\Api\AsnafSpouseAPIController;
 use App\Http\Controllers\Api\EducationAPIController;
+use App\Http\Controllers\Api\StripeAPIController;
 use App\Http\Controllers\Api\ZakatTypeAPIController;
 use Illuminate\Support\Facades\Route;
 
@@ -80,6 +81,10 @@ Route::group(['as' => 'api.'], function () {
 
     Route::group(['prefix' => 'amil-profiles', 'as' => 'amil-profiles.'], function () {
         Route::get('/type/{type}', [AmilProfileAPIController::class, 'byType'])->name('type');
+    });
+
+    Route::group(['prefix' => 'stripes', 'as' => 'stripes.'], function () {
+        Route::post('/create-payment-intent', [StripeAPIController::class, 'createPaymentIntent'])->name('create-payment-intent');
     });
 
     Route::apiResources([

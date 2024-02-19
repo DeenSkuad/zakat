@@ -38,6 +38,8 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register.post');
     Route::get('/reset-password', [AuthController::class, 'resetPassword'])->name('reset-password');
+    Route::get('/new-password/{token}', [AuthController::class, 'newPassword'])->name('new-password');
+    Route::match(['PUT', 'PATCH'], '/change-password/{token}', [AuthController::class, 'changePassword'])->name('change-password');
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

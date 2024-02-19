@@ -19,7 +19,8 @@ class RolesSeeder extends Seeder
             ['name' => 'Amil', 'guard_name' => 'web'],
             ['name' => 'PembantuAmil', 'guard_name' => 'web'],
             ['name' => 'Asnaf', 'guard_name' => 'web'],
-            ['name' => 'PembayarZakat', 'guard_name' => 'web']
+            ['name' => 'PembayarZakat', 'guard_name' => 'web'],
+            ['name' => 'Penyewa', 'guard_name' => 'web'],
         ];
 
         DB::table('roles')->insert($data);

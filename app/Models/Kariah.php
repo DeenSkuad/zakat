@@ -31,4 +31,9 @@ class Kariah extends Model
     {
         return $this->belongsTo(District::class, 'district_id', 'id');
     }
+
+    public function asnafs()
+    {
+        return $this->hasMany(AsnafProfile::class, 'kariah_id', 'id');
+    }
 }

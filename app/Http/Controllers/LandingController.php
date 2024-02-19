@@ -8,6 +8,11 @@ class LandingController extends Controller
 {
     public function index()
     {
-        return view('landing.index');
+        return view('landing.home');
+    }
+
+    public function countZakat()
+    {
+        return view('landing.count-zakat');
     }
 }

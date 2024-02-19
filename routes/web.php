@@ -26,10 +26,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+Route::group(['as' => 'landings.'], function () {
+    Route::get('/', [LandingController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'landing'], function () {
-    //
+    Route::group(['prefix' => 'landing'], function () {
+        Route::get('/count-zakat', [LandingController::class, 'countZakat'])->name('count-zakat');
+    });
 });
 
 Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {

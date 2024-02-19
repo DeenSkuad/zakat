@@ -30,7 +30,6 @@ class StateAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['created_by'] = auth()->user()->id;
 
             State::create($input);
 
@@ -65,9 +64,9 @@ class StateAPIController extends Controller
         DB::beginTransaction();
         try {
             $input = $request->all();
-            $input['updated_by'] = auth()->user()->id;
 
             $state = State::find($id);
+
             $state->update($input);
 
             DB::commit();
@@ -88,10 +87,6 @@ class StateAPIController extends Controller
         DB::beginTransaction();
         try {
             $state = State::find($id);
-
-            $state->deleted_by = auth()->user()->id;
-            $state->save();
-
             $state->delete();
 
             DB::commit();

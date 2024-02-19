@@ -58,7 +58,6 @@ Route::group(['as' => 'api.'], function () {
         Route::apiResources([
             'applications' => ApplicationAPIController::class,
             'prescriptions' => PrescriptionAPIController::class,
-            'districts' => DistrictAPIController::class,
             'asnaf-profiles' => AsnafProfileAPIController::class,
             'payments' => PaymentAPIController::class,
             'asnaf-spouses' => AsnafSpouseAPIController::class
@@ -103,5 +102,6 @@ Route::group(['as' => 'api.'], function () {
         'schools' => SchoolAPIController::class,
         'zakat-types' => ZakatTypeAPIController::class,
         'amil-profiles' => AmilProfileAPIController::class,
+        'districts' => DistrictAPIController::class,
     ]);
 });

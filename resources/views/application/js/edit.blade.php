@@ -19,11 +19,25 @@
     
     btnUpdate = (elem) => {
         confirmUpdate(elem).then((result) => {
-            let data = $('form').serialize();
+            let formData = new FormData();
+            formData.append('name', $("#name").val());
+            formData.append('ic_no', $("#ic_no").val());
+            formData.append('disease_id', $("#disease_id").val());
+            formData.append('disease_background', $("#disease_background").val());
+            formData.append('prescription_id', $("#prescription_id").val());
+            formData.append('treatment_period', $("#treatment_period").val());
+            formData.append('medical_tool', $("#medical_tool").val());
+            formData.append('frequency', $("#frequency").val());
+            formData.append('attachment', $("#attachment")[0].files[0]);
+            formData.append('heir_name', $("#heir_name").val());
+            formData.append('her_ic_no', $("#her_ic_no").val());
+            formData.append('service_id', $("#service_id").val());
+            formData.append('kariah_id', $("#kariah_id").val());
+            formData.append('user_id', $("#user_id").val());
 
             if (result.isConfirmed) {
                 let datatable = $('#userDatatable')
-                processUpdation(elem, datatable, data)
+                processUpdationWithImage(elem, datatable, formData)
             }
         })
     }

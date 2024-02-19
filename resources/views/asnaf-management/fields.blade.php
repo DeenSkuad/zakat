@@ -35,7 +35,7 @@
     <div class="mb-3">
         <label for="name" class="form-label">Negeri</label>
         <select class="form-control" name="state_id" id="state_id">
-            <option selected disabled>Sila Pilih Negeri</option>
+            {{-- <option selected disabled>Sila Pilih Negeri</option> --}}
             @foreach($states as $state)
                 @if($user->asnaf->state_id == $state->id)
                     <option value="{{ $state->id }}" selected>{{ $state->name }}</option>

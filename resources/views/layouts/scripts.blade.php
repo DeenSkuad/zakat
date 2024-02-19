@@ -94,17 +94,23 @@
                     processData: false,
                     type: 'POST',
                     success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: response.message,
-                            showConfirmButton: true,
-                        }).then(() => {
-                            $(baseAjaxModalContent).modal("hide");
-                            datatable.DataTable().ajax.reload();
-                        });
+                        if (response.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: response.message,
+                                showConfirmButton: true,
+                            }).then(() => {
+                                $(baseAjaxModalContent).modal("hide");
+                                datatable.DataTable().ajax.reload();
+                            });
+                        }
                     },
                     fail: (response) => {
-                        callback(response, false);
+                        Swal.fire(
+                            'Opps!',
+                            'An error occurred, we are sorry for inconvenience.',
+                            'danger'
+                        )
                     }
                 })
             }
@@ -124,17 +130,23 @@
                     processData: false,
                     type: 'POST',
                     success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: response.message,
-                            showConfirmButton: true,
-                        }).then(() => {
-                            $(baseAjaxModalContent).modal("hide");
-                            datatable.DataTable().ajax.reload();
-                        });
+                        if (response.success) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: response.message,
+                                showConfirmButton: true,
+                            }).then(() => {
+                                $(baseAjaxModalContent).modal("hide");
+                                datatable.DataTable().ajax.reload();
+                            });
+                        }
                     },
                     fail: (response) => {
-                        callback(response, false);
+                        Swal.fire(
+                            'Opps!',
+                            'An error occurred, we are sorry for inconvenience.',
+                            'danger'
+                        )
                     }
                 })
             }

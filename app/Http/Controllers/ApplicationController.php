@@ -147,6 +147,7 @@ class ApplicationController extends Controller
         $input = $request->all();
 
         $user = User::find($request->user_id);
+
         $input['asnaf_profile_id'] = $user->asnaf->id;
 
         $application = Application::find($id);
@@ -154,10 +155,11 @@ class ApplicationController extends Controller
         $application->update($input);
 
         $uuid = Uuid::uuid4();
-        if (!empty($request->attachment)) {
+        if ($request->hasFile('attachments')) {
             $attachment = $request->file('attachment');
 
             $uuid = Uuid::uuid4();
+            
             $filePath = $attachment->store($uuid, 'application-attachments');
 
             $application->attachments()->delete();

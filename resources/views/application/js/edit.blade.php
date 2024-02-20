@@ -20,6 +20,7 @@
     btnUpdate = (elem) => {
         confirmUpdate(elem).then((result) => {
             let formData = new FormData();
+            formData.append('_method', 'PUT');
             formData.append('name', $("#name").val());
             formData.append('ic_no', $("#ic_no").val());
             formData.append('disease_id', $("#disease_id").val());

@@ -17,6 +17,7 @@ class Kariah extends Model
         'name',
         'address',
         'postcode',
+        'coord',
         'remark',
         'status',
         'deleted_at',

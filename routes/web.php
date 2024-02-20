@@ -50,6 +50,7 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [HomeController::class, 'home'])->name('home');
+    Route::get('/get-data', [HomeController::class, 'getData'])->name('home.get-data');
 
     Route::group(['prefix' => 'cities', 'as' => 'cities.'], function () {
         Route::get('/by-state/{id}', [CityController::class, 'byState'])->name('by-state');

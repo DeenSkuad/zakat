@@ -11,7 +11,7 @@
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Zakat Fintech - Majlis Agama Islam Wilayah Persekutuan" />
         <meta property="og:url" content="https://keenthemes.com/metronic" />
-        <meta property="og:site_name" content="MAIWP" />
+        <meta property="og:site_name" content="MAIPs" />
         <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
         <!--begin::Fonts(mandatory for all pages)-->

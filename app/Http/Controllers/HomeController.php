@@ -19,7 +19,8 @@ class HomeController extends Controller
             'asnafs' => $asnafs,
             'amils' => $amils,
             'asnafCount' => $asnafs->count(),
-            'kariahs' => $kariahs
+            'kariahs' => $kariahs,
+            'kariahCount' => $kariahs->count(),
         ]);
     }
 }

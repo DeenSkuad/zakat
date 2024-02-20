@@ -17,14 +17,9 @@
                             <div class="d-flex flex-column my-7">
                                 <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $asnafCount }}</span>
                                 <div class="m-0">
-                                    <span class="fw-semibold fs-6 text-gray-500">Asnaf</span>
+                                    <span class="fw-semibold fs-6 text-gray-500">Jumlah Asnaf</span>
                                 </div>
                             </div>
-                            <span class="badge badge-light-success fs-base">
-                            <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>2.1%</span>
                         </div>
                     </div>
                 </div>
@@ -40,16 +35,11 @@
                                 </i>
                             </div>
                             <div class="d-flex flex-column my-7">
-                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">27,5M</span>
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">RM220k</span>
                                 <div class="m-0">
-                                    <span class="fw-semibold fs-6 text-gray-500">Stock Qty</span>
+                                    <span class="fw-semibold fs-6 text-gray-500">Jumlah Kutipan</span>
                                 </div>
                             </div>
-                            <span class="badge badge-light-success fs-base">
-                            <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>2.1%</span>
                         </div>
                     </div>
                 </div>
@@ -63,16 +53,11 @@
                                 </i>
                             </div>
                             <div class="d-flex flex-column my-7">
-                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">149M</span>
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">{{ $kariahCount }}</span>
                                 <div class="m-0">
-                                    <span class="fw-semibold fs-6 text-gray-500">Stock Value</span>
+                                    <span class="fw-semibold fs-6 text-gray-500">Jumlah Kariah</span>
                                 </div>
                             </div>
-                            <span class="badge badge-light-danger fs-base">
-                            <i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>0.47%</span>
                         </div>
                     </div>
                 </div>
@@ -87,16 +72,11 @@
                                 </i>
                             </div>
                             <div class="d-flex flex-column my-7">
-                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">89M</span>
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">140</span>
                                 <div class="m-0">
-                                    <span class="fw-semibold fs-6 text-gray-500">C APEX</span>
+                                    <span class="fw-semibold fs-6 text-gray-500">Permohonan</span>
                                 </div>
                             </div>
-                            <span class="badge badge-light-success fs-base">
-                            <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>2.1%</span>
                         </div>
                     </div>
                 </div>
@@ -110,16 +90,11 @@
                                 </i>
                             </div>
                             <div class="d-flex flex-column my-7">
-                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">72.4%</span>
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">30</span>
                                 <div class="m-0">
-                                    <span class="fw-semibold fs-6 text-gray-500">OPEX</span>
+                                    <span class="fw-semibold fs-6 text-gray-500">Jumlah Penyewa</span>
                                 </div>
                             </div>
-                            <span class="badge badge-light-danger fs-base">
-                            <i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>0.647%</span>
                         </div>
                     </div>
                 </div>
@@ -133,16 +108,11 @@
                                 </i>
                             </div>
                             <div class="d-flex flex-column my-7">
-                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">106M</span>
+                                <span class="fw-semibold fs-3x text-gray-800 lh-1 ls-n2">500</span>
                                 <div class="m-0">
-                                    <span class="fw-semibold fs-6 text-gray-500">Saving</span>
+                                    <span class="fw-semibold fs-6 text-gray-500">Pembayar Zakat</span>
                                 </div>
                             </div>
-                            <span class="badge badge-light-success fs-base">
-                            <i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>2.1%</span>
                         </div>
                     </div>
                 </div>
@@ -152,7 +122,7 @@
                     <div class="card card-flush h-100 mb-5 mb-xl-10">
                         <div class="card-header pt-7">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-gray-900">Top Mukim</span>
+                                <span class="card-label fw-bold text-gray-900">Top Kariah</span>
                                 <span class="text-gray-500 pt-2 fw-semibold fs-6">Jumlah {{ $asnafCount }} Asnaf</span>
                             </h3>
                             <div class="card-toolbar">
@@ -166,7 +136,6 @@
                         <div class="card-body pt-0">
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="kt_chart_widget_19_tab_content_1">
-                                    <div id="kt_charts_widget_19_chart_1" class="w-100 h-400px mb-13 mt-n4"></div>
                                     <div class="m-0">
                                         @foreach ($kariahs as $kariah)
                                             <div class="d-flex flex-stack">
@@ -193,17 +162,17 @@
                     <div class="card card-flush h-xl-50 mb-5 mb-xl-10">
                         <div class="card-header py-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-gray-900">Human Resources</span>
-                                <span class="text-gray-500 mt-1 fw-semibold fs-6">Reports by states and ganders</span>
+                                <span class="card-label fw-bold text-gray-900">Asnaf Berdaftar</span>
+                                <span class="text-gray-500 mt-1 fw-semibold fs-6">Asnaf berdaftar dibawah kariah</span>
                             </h3>
                         </div>
                         <div class="card-body pt-0">
-                            a<div id="kt_leaflet_1" style="height:300px;"></div>
+                            <div id="kt_leaflet_1" style="height:400px;"></div>
                         </div>
                     </div>
                     <div class="card card-flush h-xl-50">
                         <div class="card-header py-5">
-                            <h3 class="card-title fw-bold text-gray-800">Monthly Targets</h3>
+                            <h3 class="card-title fw-bold text-gray-800">Sasaran Bulanan</h3>
                             <div class="card-toolbar">
                                 <div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" class="btn btn-sm btn-light d-flex align-items-center px-4">
                                     <div class="text-gray-600 fw-bold">Loading date range...</div>
@@ -219,32 +188,7 @@
                             </div>
                         </div>
                         <div class="card-body d-flex justify-content-between flex-column pb-0 px-0 pt-1">
-                            <div class="d-flex flex-wrap d-grid gap-5 px-9 mb-5">
-                                <div class="me-md-2">
-                                    <div class="d-flex mb-2">
-                                        <span class="fs-4 fw-semibold text-gray-500 me-1">$</span>
-                                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">12,706</span>
-                                    </div>
-                                    <span class="fs-6 fw-semibold text-gray-500">Targets for April</span>
-                                </div>
-                                <div class="border-start-dashed border-end-dashed border-start border-end border-gray-300 px-5 ps-md-10 pe-md-7 me-md-5">
-                                    <div class="d-flex mb-2">
-                                        <span class="fs-4 fw-semibold text-gray-500 me-1">$</span>
-                                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">8,035</span>
-                                    </div>
-                                    <span class="fs-6 fw-semibold text-gray-500">Actual for April</span>
-                                </div>
-                                <div class="m-0">
-                                    <div class="d-flex align-items-center mb-2">
-                                        <span class="fs-4 fw-semibold text-gray-500 align-self-start me-1">$</span>
-                                        <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">4,684</span>
-                                        <span class="badge badge-light-success fs-base">
-                                        <i class="ki-duotone ki-black-up fs-7 text-success ms-n1"></i>4.5%</span>
-                                    </div>
-                                    <span class="fs-6 fw-semibold text-gray-500">GAP</span>
-                                </div>
-                            </div>
-                            <div id="kt_charts_widget_20" class="min-h-auto ps-4 pe-6" data-kt-chart-info="Revenue" style="height: 300px"></div>
+                            <div id="kt_charts_widget_1_chart" style="height: 350px"></div>
                         </div>
                     </div>
                 </div>
@@ -261,23 +205,18 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            // Class definition
             var KTLeaflet = function () {
 
-            // Private functions
-            var demo1 = function () {
-                // define leaflet
+            var demo1 = async function () {
                 var leaflet = L.map('kt_leaflet_1', {
-                    center: [-37.8179793, 144.9671293],
+                    center: [6.429607903209255, 100.26956845270323],
                     zoom: 11
                 });
 
-                // set leaflet tile layer
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    maxZoom: 19,
                 }).addTo(leaflet);
 
-                // set custom SVG icon marker
                 var leafletIcon = L.divIcon({
                     html: `<span class="svg-icon svg-icon-danger svg-icon-3x"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="24" width="24" height="0"/><path d="M5,10.5 C5,6 8,3 12.5,3 C17,3 20,6.75 20,10.5 C20,12.8325623 17.8236613,16.03566 13.470984,20.1092932 C12.9154018,20.6292577 12.0585054,20.6508331 11.4774555,20.1594925 C7.15915182,16.5078313 5,13.2880005 5,10.5 Z M12.5,12 C13.8807119,12 15,10.8807119 15,9.5 C15,8.11928813 13.8807119,7 12.5,7 C11.1192881,7 10,8.11928813 10,9.5 C10,10.8807119 11.1192881,12 12.5,12 Z" fill="#000000" fill-rule="nonzero"/></g></svg></span>`,
                     bgPos: [10, 10],
@@ -286,19 +225,43 @@
                     className: 'leaflet-marker'
                 });
 
-                // bind marker with popup
-                var marker = L.marker([-37.8179793, 144.9671293], { icon: leafletIcon }).addTo(leaflet);
-                marker.bindPopup("<b>Flinder's Station</b><br/>Melbourne, Victoria").openPopup();
+                var marker = L.marker([6.430226659075849, 100.2703516685301], { icon: leafletIcon }).addTo(leaflet);
+                marker.bindPopup("<b>Masjid Negeri Arau</b><br/>Asnaf Berdaftar: 2,000<br />Jumlah Kutipan: RM50,000.00").openPopup();
+
+                var marker1 = L.marker([6.445801991829521, 100.27497576853008], { icon: leafletIcon }).addTo(leaflet);
+                marker1.bindPopup("<b>MASJID AL NUR</b><br/>Asnaf Berdaftar: 3,000<br />Jumlah Kutipan: RM20,000.00").openPopup();
+
+                var marker2 = L.marker([6.498216051162056, 100.33443333969444], { icon: leafletIcon }).addTo(leaflet);
+                marker2.bindPopup("<b>MASJID ALI IMRAN</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker3 = L.marker([6.43339742548246, 100.28812936853004], { icon: leafletIcon }).addTo(leaflet);
+                marker3.bindPopup("<b>MASJID AL MURSYID</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker4 = L.marker([6.455974891434227, 100.29571397599013], { icon: leafletIcon }).addTo(leaflet);
+                marker4.bindPopup("<b>MASJID AL MASYHOR</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker5 = L.marker([6.449534200354241, 100.26786588078856], { icon: leafletIcon }).addTo(leaflet);
+                marker5.bindPopup("<b>MASJID MUHAMMADIAH</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker6 = L.marker([6.452632424552875, 100.2601671445039], { icon: leafletIcon }).addTo(leaflet);
+                marker6.bindPopup("<b>MASJID NURUL MUKMININ</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker7 = L.marker([6.413749019245483, 100.22616861147388], { icon: leafletIcon }).addTo(leaflet);
+                marker7.bindPopup("<b>MASJID AL TAQWA</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker8 = L.marker([6.379116314298139, 100.23741073969428], { icon: leafletIcon }).addTo(leaflet);
+                marker8.bindPopup("<b>MASJID IBNU TAIMIAH</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
+
+                var marker9 = L.marker([6.450982490759584, 100.27948789416004], { icon: leafletIcon }).addTo(leaflet);
+                marker9.bindPopup("<b>MASJID AL FALAH</b><br/>Asnaf Berdaftar: 5,000<br />Jumlah Kutipan: RM100,000.00").openPopup();
             }
 
             return {
-                    // public functions
                     init: function () {
-                        // default charts
                         demo1();
                     }
                 };
-            }();
+            } ();
 
             jQuery(document).ready(function () {
                 KTLeaflet.init();

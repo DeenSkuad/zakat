@@ -10,7 +10,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="Zakat Fintech - Majlis Agama Islam Wilayah Persekutuan" />
     <meta property="og:url" content="https://keenthemes.com/metronic" />
-    <meta property="og:site_name" content="MAIWP" />
+    <meta property="og:site_name" content="MAIPs" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -55,7 +55,7 @@
                     <div class="header-brand">
                         <!--begin::Logo-->
                         <a href="{{ route('home') }}">
-                            <img alt="Logo" src="{{ asset('logo.png') }}" height="50px" /> MAIWP
+                            <img alt="Logo" src="{{ asset('logo.png') }}" height="50px" /> MAIPs
                         </a>
                         <!--end::Logo-->
                         <!--begin::Aside minimize-->

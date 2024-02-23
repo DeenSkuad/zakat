@@ -73,7 +73,7 @@ class ApplicationAPIController extends Controller
             $data = Prescription::where('id', $request->prescriptions)->first();
 
             if (empty($data)) {
-                $data = Prescription::create(['name' => $data->name]);
+                $data = Prescription::create(['name' => $request->name]);
             }
 
             ApplicationPrescription::create([

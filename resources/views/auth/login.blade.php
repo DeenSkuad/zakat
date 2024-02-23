@@ -133,7 +133,8 @@
                         src="{{ asset('logo.png') }}" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Majlis Agama Islam Wilayah Persekutuan</h1>
+                    <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Majlis Agama Islam
+                        Wilayah Persekutuan</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
                     <div class="d-none d-lg-block text-white fs-base text-center">

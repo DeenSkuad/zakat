@@ -59,20 +59,16 @@ class ApplicationAPIController extends Controller
                 }
             }
 
-            $diseases = $request->diseases;
+            $data = Disease::where('name', $request->diseases)->first();
 
-            foreach ($diseases as $disease) {
-                $data = Disease::where('name', $disease)->first();
-
-                if (empty($data)) {
-                    $data = Disease::create(['name' => $disease]);
-                }
-
-                ApplicationDisease::create([
-                    'application_id' => $application->id,
-                    'disease_id' => $data->id
-                ]);
+            if (empty($data)) {
+                $data = Disease::create(['name' => $data->name]);
             }
+
+            ApplicationDisease::create([
+                'application_id' => $application->id,
+                'disease_id' => $data->id
+            ]);
 
             $prescriptions = $request->prescriptions;
 

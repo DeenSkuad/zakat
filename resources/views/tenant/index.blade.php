@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header border-0 pt-5">
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label fw-bold fs-3 mb-1">Negeri</span>
+                            <span class="card-label fw-bold fs-3 mb-1">Penyewa</span>
                         </h3>
                         <div class="text-end">
                             <button type="button" class="btn btn-primary" data-action="{{ route('tenants.create') }}" onclick="getModalContent(this)"><i class="fa fa-plus"></i> Tambah</button>

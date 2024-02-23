@@ -19,4 +19,4 @@
     </div>
 </div>
 
-@include('state.js.show')
+@include('tenant.js.show')

@@ -12,6 +12,7 @@ use App\Http\Controllers\KariahController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\StateController;
+use App\Http\Controllers\TenantController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,6 +67,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/by-postcode/{id}', [KariahController::class, 'byPostcode'])->name('by-postcode');
     });
 
+    Route::group(['prefix' => 'tenants', 'as' => 'tenants.'], function () {
+        Route::get('/details/{id}', [TenantController::class, 'details'])->name('details');
+    });
+
     Route::resources([
         'users' => UserController::class,
         'services' => ServiceController::class,
@@ -78,5 +83,6 @@ Route::group(['middleware' => 'auth'], function () {
         'asnaf-managements' => AsnafManagementController::class,
         'claims' => ClaimController::class,
         'amil-managements' => AmilManagementController::class,
+        'tenants' => TenantController::class,
     ]);
 });

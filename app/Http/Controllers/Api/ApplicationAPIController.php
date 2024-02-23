@@ -70,20 +70,16 @@ class ApplicationAPIController extends Controller
                 'disease_id' => $data->id
             ]);
 
-            $prescriptions = $request->prescriptions;
+            $data = Prescription::where('id', $request->prescriptions)->first();
 
-            foreach ($prescriptions as $prescription) {
-                $data = Prescription::where('name', $prescription)->first();
-
-                if (empty($data)) {
-                    $data = Prescription::create(['name' => $prescription]);
-                }
-
-                ApplicationPrescription::create([
-                    'application_id' => $application->id,
-                    'prescription_id' => $data->id
-                ]);
+            if (empty($data)) {
+                $data = Prescription::create(['name' => $data->name]);
             }
+
+            ApplicationPrescription::create([
+                'application_id' => $application->id,
+                'prescription_id' => $data->id
+            ]);
 
             DB::commit();
             return response()->json([

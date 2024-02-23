@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('address');
             $table->string('postcode', 10);
+            $table->json('coord')->nullable();
             $table->auditable();
 
             $table->foreign('district_id')->references('id')->on('districts');

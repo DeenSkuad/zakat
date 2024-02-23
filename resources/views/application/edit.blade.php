@@ -201,7 +201,7 @@
                                 <div class="row">
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Dokumen Sokongan / Laporan Perubatan</label>
-                                        <input type="file" class="form-control form-control-lg form-control-solid" name="attachment" id="attachment" placeholder="" value="{{$application->attachment ?? ''}}" autocomplete="off" />
+                                        <input type="file" class="form-control form-control-lg form-control-solid" name="attachment" id="attachment" placeholder="" value="" autocomplete="off" />
                                     </div>
                                     <div class="mb-10 fv-row col-md-6">
                                         <label class="required form-label mb-3">Penyakit ini (akan/tidak akan) menyebabkan pesakit ini tidak berupaya menanggung diri sendiri</label>
@@ -260,8 +260,8 @@
                             <!--end::Wrapper-->
                             <!--begin::Wrapper-->
                             <div>
-                                <button type="button" data-action="{{ route('applications.store') }}" onClick="btnUpdate(this)" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
-                                    <span class="indicator-label">Simpan
+                                <button type="button" data-action="{{ route('applications.update', $application->id) }}" onClick="btnUpdate(this)" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
+                                    <span class="indicator-label">Kemaskini
                                         <i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
                                             <span class="path1"></span>
                                             <span class="path2"></span>

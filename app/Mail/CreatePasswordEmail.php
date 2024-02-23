@@ -33,6 +33,7 @@ class CreatePasswordEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            to: $this->user->email,
             subject: 'Kemaskini Kata Laluan',
         );
     }

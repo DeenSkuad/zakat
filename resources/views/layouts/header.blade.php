@@ -5,32 +5,8 @@
         <!--begin::Page title-->
         <div class="page-title d-flex justify-content-center flex-column me-5">
             <!--begin::Title-->
-            <h1 class="d-flex flex-column text-gray-900 fw-bold fs-3 mb-0">Finance Performance</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 pt-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">
-                    <a href="index.html" class="text-muted text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-300 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Dashboards</li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-300 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-gray-900">Finance Performance</li>
-                <!--end::Item-->
-            </ul>
             <!--end::Breadcrumb-->
         </div>
         <!--end::Page title-->
@@ -56,7 +32,7 @@
                     <!--begin::Notifications-->
                     <div class="d-flex align-items-center">
                         <!--begin::Menu- wrapper-->
-                        <a href="apps/subscriptions/add.html"
+                        <a href="{{ route('applications.index') }}"
                             class="btn btn-sm btn-icon btn-icon-muted btn-active-icon-primary">
                             <i class="ki-duotone ki-add-files fs-1">
                                 <span class="path1"></span>
@@ -67,19 +43,6 @@
                         <!--end::Menu wrapper-->
                     </div>
                     <!--end::Notifications-->
-                    <!--begin::Quick links-->
-                    <div class="d-flex align-items-center">
-                        <!--begin::Menu wrapper-->
-                        <a href="apps/file-manager/folders.html"
-                            class="btn btn-sm btn-icon btn-icon-muted btn-active-icon-primary">
-                            <i class="ki-duotone ki-file-up fs-1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                        </a>
-                        <!--end::Menu wrapper-->
-                    </div>
-                    <!--end::Quick links-->
                 </div>
                 <!--end::Actions-->
             </div>

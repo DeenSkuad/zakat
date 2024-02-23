@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\ChangePasswordMailJob;
-use App\Mail\CreatePasswordEmail;
-use App\Models\AsnafProfile;
+use App\Jobs\CreatePasswordEmailJob;
 use App\Models\District;
 use App\Models\State;
 use App\Models\User;
@@ -12,7 +10,6 @@ use App\Models\PasswordResetToken;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Mail;
 use Str;
 
 class AsnafManagementController extends Controller
@@ -97,9 +94,7 @@ class AsnafManagementController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::send(new CreatePasswordEmail($user, $token));
-
-        // dispatch(new CreatePasswordEmailJob($user, $password));
+        dispatch(new CreatePasswordEmailJob($user, $token));
 
         return response()->json([
             'success' => true,

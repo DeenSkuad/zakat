@@ -16,7 +16,8 @@ class AsnafProfilesSeeder extends Seeder
         $data = [
             [
                 'user_id' => 5,
-                'kariah_id' => 1
+                'kariah_id' => 1,
+                'phone_no' => "+60176336312"
             ],
         ];
 

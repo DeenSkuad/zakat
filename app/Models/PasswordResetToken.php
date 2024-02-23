@@ -18,4 +18,9 @@ class PasswordResetToken extends Model
         'token',
         'created_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'email', 'email');
+    }
 }

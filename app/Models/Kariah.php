@@ -17,6 +17,7 @@ class Kariah extends Model
         'name',
         'address',
         'postcode',
+        'coord',
         'remark',
         'status',
         'deleted_at',
@@ -30,5 +31,10 @@ class Kariah extends Model
     public function district()
     {
         return $this->belongsTo(District::class, 'district_id', 'id');
+    }
+
+    public function asnafs()
+    {
+        return $this->hasMany(AsnafProfile::class, 'kariah_id', 'id');
     }
 }

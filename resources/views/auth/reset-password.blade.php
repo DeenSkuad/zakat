@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Zakat Fintech - Majlis Agama Islam Wilayah Persekutuan" />
+    <meta property="og:title" content="Zakat Fintech - Majlis Agama Islam Perlis" />
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="MAIPs" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
@@ -198,7 +198,7 @@
                         src="{{ asset('logo.png') }}" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Majlis Agama Islam Wilayah Persekutuan</h1>
+                    <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Majlis Agama Islam Perlis</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
                     <div class="d-none d-lg-block text-white fs-base text-center">

@@ -96,7 +96,8 @@
                     <div class="row w-100 gy-10 mb-md-20">
                         <div class="col-md-4 px-5">
                             <div class="text-center mb-10 mb-md-0">
-                                <img src="{{ asset('kira.jpg') }}" class="mh-300px mb-9" alt="" />
+                                <!-- <img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" /> -->
+                                <iframe src="https://lottie.host/embed/9a4837ed-9ab2-48c5-831e-d3b36867ea7d/0a1VTNEIk9.json"></iframe>
                                 <div class="d-flex flex-center mb-5">
                                     <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">1</span>
                                     <div class="fs-5 fs-lg-1 fw-bold text-white">Kira</div>
@@ -109,7 +110,8 @@
                         </div>
                         <div class="col-md-4 px-5">
                             <div class="text-center mb-10 mb-md-0">
-                                <img src="{{ asset('bayar.jpg') }}" class="mh-300px mb-9" alt="" />
+                                <!-- <img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" /> -->
+                                <iframe src="https://lottie.host/embed/02799671-03ba-4bf5-b644-25b9bbc3c8a8/mR49XkaVgo.json"></iframe>
                                 <div class="d-flex flex-center mb-5">
                                     <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">2</span>
                                     <div class="fs-5 fs-lg-1 fw-bold text-white">Bayar</div>
@@ -123,7 +125,8 @@
                         </div>
                         <div class="col-md-4 px-5">
                             <div class="text-center mb-10 mb-md-0">
-                                <img src="{{ asset('semak.jpg') }}" class="mh-300px mb-9" alt="" />
+                                <!-- <img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" /> -->
+                                <iframe src="https://lottie.host/embed/fcfc89a0-35c2-4f38-b238-0d374e834b6c/2poy8kkHcY.json"></iframe>
                                 <div class="d-flex flex-center mb-5">
                                     <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">3</span>
                                     <div class="fs-5 fs-lg-1 fw-bold text-white">Semak</div>

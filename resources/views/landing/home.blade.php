@@ -96,25 +96,25 @@
                     <div class="row w-100 gy-10 mb-md-20">
                         <div class="col-md-4 px-5">
                             <div class="text-center mb-10 mb-md-0">
-                                <img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
+                                <img src="{{ asset('kira.jpg') }}" class="mh-300px mb-9" alt="" />
                                 <div class="d-flex flex-center mb-5">
                                     <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">1</span>
-                                    <div class="fs-5 fs-lg-3 fw-bold text-white">Kira</div>
+                                    <div class="fs-5 fs-lg-1 fw-bold text-white">Kira</div>
                                 </div>
-                                <div class="fw-semibold fs-6 fs-lg-4 text-muted">Buat kiraan zakat dengan sempurna
-                                    <br />dengan kalkulator zakat yang disediakan
+                                <div class="fw-semibold fs-6 fs-lg-1 text-muted">Buat kiraan zakat dengan sempurna
+                                    dengan kalkulator zakat yang disediakan
                                     <br /><button type="button" class="btn btn-default text-white">KIRA SEKARANG</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 px-5">
                             <div class="text-center mb-10 mb-md-0">
-                                <img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" />
+                                <img src="{{ asset('bayar.jpg') }}" class="mh-300px mb-9" alt="" />
                                 <div class="d-flex flex-center mb-5">
                                     <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">2</span>
-                                    <div class="fs-5 fs-lg-3 fw-bold text-white">Bayar</div>
+                                    <div class="fs-5 fs-lg-1 fw-bold text-white">Bayar</div>
                                 </div>
-                                <div class="fw-semibold fs-6 fs-lg-4 text-muted">Pelbagai saluran bayaran zakat
+                                <div class="fw-semibold fs-6 fs-lg-1 text-muted">Pelbagai saluran bayaran zakat
                                     tersedia
                                     <br />untuk anda menunaikan zakat
                                     <br /><button type="button" class="btn btn-default text-white">BAYAR SEKARANG</button>
@@ -123,12 +123,12 @@
                         </div>
                         <div class="col-md-4 px-5">
                             <div class="text-center mb-10 mb-md-0">
-                                <img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" />
+                                <img src="{{ asset('semak.jpg') }}" class="mh-300px mb-9" alt="" />
                                 <div class="d-flex flex-center mb-5">
                                     <span class="badge badge-circle badge-light-success fw-bold p-5 me-3 fs-3">3</span>
-                                    <div class="fs-5 fs-lg-3 fw-bold text-white">Semak</div>
+                                    <div class="fs-5 fs-lg-1 fw-bold text-white">Semak</div>
                                 </div>
-                                <div class="fw-semibold fs-6 fs-lg-4 text-muted">Semak bayaran zakat, tebus mata
+                                <div class="fw-semibold fs-6 fs-lg-1 text-muted">Semak bayaran zakat, tebus mata
                                     <br />ganjaran atau cetak penyata zakat untuk
                                     <br />tujuan percukaian
                                     <br /><button type="button" class="btn btn-default text-white">SEMAK SEKARANG</button>

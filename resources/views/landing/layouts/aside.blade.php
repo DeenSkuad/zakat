@@ -48,7 +48,8 @@
         overflow: hidden;
         background-color: black;
     }
-    .storeLink > img {
+
+    .storeLink>img {
         --width: 100%;
         position: absolute;
         width: var(--width);
@@ -56,10 +57,21 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    .chat_engine {
+        position: fixed;
+        right: 1rem;
+        bottom: 2rem;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 5;
+        padding-right: 12px;
+    }
 </style>
 
-<div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
-    data-kt-sticky-offset="{default: '200px', lg: '300px'}">
+<div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
     <!--begin::Container-->
     <div class="container">
         <!--begin::Wrapper-->
@@ -73,27 +85,18 @@
                     </i>
                 </button>
                 <a href="landing.html">
-                    <img alt="Logo" src="{{ asset('logo.png') }}" class="logo-default" height="100px"
-                        width="100px" />
+                    <img alt="Logo" src="{{ asset('logo.png') }}" class="logo-default" height="100px" width="100px" />
                 </a>
             </div>
 
             <div class="d-lg-block" id="kt_header_nav_wrapper">
-                <div class="d-lg-block p-5 p-lg-0" data-kt-drawer="true" data-kt-drawer-name="landing-menu"
-                    data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
-                    data-kt-drawer-width="200px" data-kt-drawer-direction="start"
-                    data-kt-drawer-toggle="#kt_landing_menu_toggle" data-kt-swapper="true"
-                    data-kt-swapper-mode="prepend"
-                    data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
-                    <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-gray-600 menu-state-title-primary nav nav-flush fs-5 fw-semibold menu-horizontal"
-                        id="kt_landing_menu">
+                <div class="d-lg-block p-5 p-lg-0" data-kt-drawer="true" data-kt-drawer-name="landing-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="200px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_landing_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav_wrapper'}">
+                    <div class="menu menu-column flex-nowrap menu-rounded menu-lg-row menu-title-gray-600 menu-state-title-primary nav nav-flush fs-5 fw-semibold menu-horizontal" id="kt_landing_menu">
                         <div class="menu-item">
-                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="#kt_body"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Utama</a>
+                            <a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="#kt_body" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Utama</a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Info Korporat</a>
+                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Info Korporat</a>
                             <div class="menu-sub menu-sub-dropdown w-175px py-2">
                                 <div class="menu-item">
                                     <a href="#" class="menu-link">Visi dan Misi</a>
@@ -110,8 +113,7 @@
                             </div>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Zakat</a>
+                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Zakat</a>
                             <div class="menu-sub menu-sub-dropdown w-175px py-2">
                                 <div class="menu-item">
                                     <a href="#" class="menu-link">Jenis-jenis Zakat</a>
@@ -125,8 +127,7 @@
                             </div>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Wakaf</a>
+                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Wakaf</a>
                             <div class="menu-sub menu-sub-dropdown w-175px py-2">
                                 <div class="menu-item">
                                     <a href="#" class="menu-link">Wakaf Tunai</a>
@@ -140,8 +141,7 @@
                             </div>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Agihan</a>
+                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Agihan</a>
                             <div class="menu-sub menu-sub-dropdown w-175px py-2">
                                 <div class="menu-item">
                                     <a href="#" class="menu-link">Mohon Bantuan</a>
@@ -155,8 +155,7 @@
                             </div>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works"
-                                data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Hubungi Kami</a>
+                            <a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Hubungi Kami</a>
                             <div class="menu-sub menu-sub-dropdown w-175px py-2">
                                 <div class="menu-item">
                                     <a href="#" class="menu-link">Ibu Pejabat</a>
@@ -173,13 +172,22 @@
                 </div>
             </div>
 
-            <div class="flex-equal text-end ms-1">
-                <a href="{{ route('landings.count-zakat') }}" class="btn btn-success">Bayar Zakat Online</a>
+            <div class="d-flex  align-items-center justify-items-center justify-content-end flex-equal text-end ms-1">
+                <a href="{{ route('landings.count-zakat') }}" class="btn btn-success mx-2">Bayar Zakat Online</a>
+                <a href="{{ route('auth.login') }}" class="d-flex flex-column align-items-center justify-items-center">
+                    <i class="ki-duotone ki-profile-circle fs-2tx">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                        <span class="path3"></span>
+                    </i><span class="text-white d-none">Log Masuk</span></a>
+
             </div>
 
-            <div class="app-engage" id="kt_app_engage">
+
+            <div class="chat_engine" id="kt_app_engage">
                 <a href="https://preview.keenthemes.com/metronic8" target="_blank">
-                    <img src="{{ asset('chatbot.png') }}" class="robot-icon"><br>
+                    <img src="{{ asset('chatbot.png') }}" class="robot-icon "><br>
+                    <!-- <i class="ki-duotone ki- messages robot-icon"> <span class="path1"></span> <span class="path2"></span> <span class="path3"></span> <span class="path4"></span> <span class="path5"></span> </i> -->
                     <span class="robot-text">Tanya Aliff</span>
                 </a>
             </div>
